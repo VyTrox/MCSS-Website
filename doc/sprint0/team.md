@@ -8,4 +8,4 @@ Youan Cong    congyoua    1005251184    y.cong@mail.utoronto.ca             youa
 Yichun Liu    liuyic16    1003556626    yichun.liu@mail.utoronto.ca         yichun.liu@mail.utoronto.ca
 
 Discord server:
-https://discord.gg/UansQrMDy3
+https://discord.gg/JaXHJ4S37r

@@ -1,0 +1,2 @@
+# Team agreement on the definition of "done":
+Based on our team objectives and project application type, for each user story, the standard definition of "done" is that the specific required feature or function is implemented theroretically correctly and running effeciently with no outstanding critical bugs. With situation that if some problem is beyond all the team members's reach, additional defintion of "done" applys, which is that the required feature or function is implemented and running with minimal bugs.

@@ -4,7 +4,7 @@ Project objectives:
     - Resources page helpful for students in the field of computer science, mathematics, and statistics
     - Executives are able to log in and publish MCSS event information
     - Mailchimp integration
-    - Have a section that can redirect to our Shopify website
+    - Have a section that can redirect to the Shopify website
 
 Key users:
     - Students
@@ -17,5 +17,5 @@ Scenarios:
 
 Principles:
     - Provide a helpful platform for students and university staffs
-    - Helping students get a good understanding of MCSS
+    - Helping students get a good understanding of MCSS club
     - Learn about MCSS’s activities and events

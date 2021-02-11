@@ -51,7 +51,7 @@ export default function Footer(props) {
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           {description}
         </Typography>
-        <Copyright />
+        {/* <Copyright /> */}
       </Container>
     </footer>
   );

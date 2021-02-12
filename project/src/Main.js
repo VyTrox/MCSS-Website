@@ -15,22 +15,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'Home', url: '#' },
+  { title: 'About Us', url: '#' },
+  { title: 'Our Events', url: '#' },
+  { title: 'Programs', url: '#' },
+  { title: 'Resources', url: '#' },
+  { title: 'Information', url: '../UsefulInformation' },
+  { title: 'Contact', url: '#' },
 ];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: 'Welcome to MCSS offcial website',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    "The Mathematical and Computational Sciences Society serves the needs of every student enrolled in a Math, Computer Science, or Statistics course..",
   image: 'https://source.unsplash.com/random',
   imgText: 'main image description',
   linkText: 'Continue reading…',
@@ -38,18 +35,18 @@ const mainFeaturedPost = {
 
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'Post section 1',
+    date: 'Feb 12',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+      'This is content for post 1.',
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Post section 2',
+    date: 'Feb 12',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+      'This is content for post 1.',
     image: 'https://source.unsplash.com/random',
     imageText: 'Image Text',
   },
@@ -63,7 +60,7 @@ export default function Blog() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="MCSS" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>

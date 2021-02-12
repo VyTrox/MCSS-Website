@@ -18,6 +18,7 @@ const sections = [
   { title: 'Home', url: '../' },
   { title: 'Programs', url: '../Programs' },
   { title: 'About Us', url: '../AboutUs' },
+  { title: 'Other Clubs', url: '../OtherClubs' },
 ];
 
 

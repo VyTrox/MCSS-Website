@@ -6,6 +6,7 @@ import Main from './Main';
 import AboutUs from './Componet/AboutUs/aboutUs';
 import Programs from './Componet/Programs/programs';
 import UsefulInformation from './Componet/UsefulInformation/usefulInformation';
+import OtherClubs from './Componet/OtherClubs/otherClubs';
 
 
 class App extends React.Component{
@@ -19,6 +20,7 @@ class App extends React.Component{
             <Route exact path='/AboutUs' render={() => <AboutUs></AboutUs>}/>
             <Route exact path='/Programs' render={() => <Programs></Programs>}/>
             <Route exact path='/UsefulInformation' render={() => <UsefulInformation></UsefulInformation>}/> 
+            <Route exact path='/OtherClubs' render={() => <OtherClubs></OtherClubs>}/>
           </Switch>
         </BrowserRouter>
       </div>

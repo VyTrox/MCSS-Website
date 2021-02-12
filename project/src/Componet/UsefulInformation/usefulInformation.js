@@ -47,6 +47,7 @@ class UsefulInformation extends React.Component {
                   <ul>
                     <li><a href="../Programs" target="_blank">Programs information</a></li>
                     <li><a href="../AcademicResources" target="_blank">AcademicResources</a></li>
+                    <li><a href="../OtherClubs" target="_blank">Other Clubs</a></li>
                     <li>...</li>
                   </ul>
                 </div>

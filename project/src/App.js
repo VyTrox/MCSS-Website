@@ -15,6 +15,7 @@ class App extends React.Component{
           <Switch>
             <Route exact path='/' render={() => <Main></Main>}/>
             <Route exact path='/AboutUs' render={() => <AboutUs></AboutUs>}/>
+            <Route exact path='/AcademicResources' render={() => <AcademicResources></AcademicResources>}/>
           </Switch>
         </BrowserRouter>
       </div>

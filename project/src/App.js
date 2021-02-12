@@ -5,6 +5,7 @@ import './App.css';
 import Main from './Main';
 import AboutUs from './Componet/AboutUs/aboutUs';
 import Programs from './Componet/Programs/programs';
+import UsefulInformation from './Componet/UsefulInformation/usefulInformation';
 
 
 class App extends React.Component{
@@ -17,6 +18,7 @@ class App extends React.Component{
             <Route exact path='/' render={() => <Main></Main>}/>
             <Route exact path='/AboutUs' render={() => <AboutUs></AboutUs>}/>
             <Route exact path='/Programs' render={() => <Programs></Programs>}/>
+            <Route exact path='/UsefulInformation' render={() => <UsefulInformation></UsefulInformation>}/> 
           </Switch>
         </BrowserRouter>
       </div>

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: 'Home', url: '../' },
   { title: 'About Us', url: '../AboutUs' },
+  { title: 'Programs', url: '../Programs' },
 ];
 
 // const aboutUs = {

@@ -21,15 +21,6 @@ const sections = [
 ];
 
 
-// const aboutUs = {
-//   title: 'About MCSS',
-//   description:
-//     "Mathematical & Computational Sciences Society (MCSS) is the official society representing MCS students. We hold events for students, historically they’ve been centered around MCS topics or hobbies like game nights, coding competitions, or featuring MCS professors.\n We have a Discord server, Instagram, and inactive Facebook & Twitter which are our main forms of communication with students besides this website, the links to those can be found at the bottom of the page!",
-//   image: '../../Resource/Logo/MCSSLogo.png',
-//   imgText: 'MCSS Logo',
-//   linkText: 'Go back to Home',
-// };
-
 class Programs extends React.Component {
     render() {
       return (
@@ -41,6 +32,7 @@ class Programs extends React.Component {
               <MainFeaturedPost post={aboutUs} />
             </main> */}
             <body>
+              
                 <h1>Intro</h1>
                     <div id="intro"><br></br></div>
                 <h1>Requirements</h1> 
@@ -57,6 +49,7 @@ class Programs extends React.Component {
                         <tr><td>If you receive an invitation to your program on ACORN, time period for you to accept the offer</td>
                             <td>May 1 - June 2</td><td>June 8 - September 20</td></tr>
                     </table>
+                    <br></br>
                     <li>Application Deadlines for Type 1 programs:</li>
                         <p>Enrol any time on <a href="https://www.acorn.utoronto.ca/">ACORN</a></p>
                     <li>MCS Program Tpyes:</li>
@@ -78,6 +71,7 @@ class Programs extends React.Component {
                 </ul>
                 <p>For more detailed information, plesae visit <a href="https://www.utm.utoronto.ca/registrar/program-guide">here.</a></p>
                 </div>
+                
             </body>
           </Container>
           <Footer title="Footer" description="A UTM CSC301 Student Project" />

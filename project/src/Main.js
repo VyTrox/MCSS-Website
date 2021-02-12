@@ -18,6 +18,7 @@ const sections = [
   { title: 'Home', url: '#' },
   { title: 'About Us', url: '#' },
   { title: 'Our Events', url: '#' },
+  { title: 'Programs', url: '#' },
   { title: 'Resources', url: '#' },
   { title: 'Contact', url: '#' },
 ];

@@ -50,6 +50,16 @@ Responsibilities:
 Collaborators:  
 - Zechuan Liu 
 
+**Class name: Programs** 
+Parent class: React.Component  
+Responsibilities:  
+- Display information about all MCS programs, including:
+- Program application requirements
+- Program application deadlines
+
+Collaborators:
+- Youan Cong
+- Lang Qin
 
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.

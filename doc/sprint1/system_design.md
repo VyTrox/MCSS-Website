@@ -18,7 +18,37 @@ Collaborators:
 - Alex Quach
 
 
-**Class name:**  
+**Class name: footer** 
+Parent class: React.Component  
+Responsibilities:  
+- Footer section of the website and it contains description and siderbar(social link of MCSS).
+
+Collaborators:  
+- Zechuan Liu 
+
+**Class name: siderbar** 
+Parent class: React.Component  
+Responsibilities:  
+- Link to other social platform of MCSS.
+
+Collaborators:  
+- Zechuan Liu 
+
+**Class name: post** 
+Parent class: React.Component  
+Responsibilities:  
+- Post section of MCSS and it can display information for user and executive team will be able to edit.
+
+Collaborators:  
+- Zechuan Liu 
+
+**Class name: header** 
+Parent class: React.Component  
+Responsibilities:  
+- head section of MCSS and it has multiple section for user to access.
+
+Collaborators:  
+- Zechuan Liu 
 
 
 ### MVC Architecture

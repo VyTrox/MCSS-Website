@@ -6,6 +6,7 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
 import '../../CSS/styles.css'
+import './styles.css'
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -31,6 +32,10 @@ class AcademicResources extends React.Component {
                     <h1>
                       Old Exams Repository
                     </h1>
+
+                    <img id ='logo' src='https://twitter.com/UTMlibrary/photo' alt='lib'>
+                    </img>
+
                     <br></br>
                     <div id='old_exams'>
                       The library offical website offers old exams from all three campuses, which is accessible by login with UTORID.   

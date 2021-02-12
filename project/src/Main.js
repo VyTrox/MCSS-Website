@@ -15,13 +15,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Home', url: '#' },
-  { title: 'About Us', url: '#' },
-  { title: 'Our Events', url: '#' },
-  { title: 'Programs', url: '#' },
-  { title: 'Resources', url: '#' },
-  { title: 'Information', url: '../UsefulInformation' },
-  { title: 'Contact', url: '#' },
+  { title: 'Home', url: '../' },
+  { title: 'About Us', url: '../AboutUs' },
+  { title: 'Programs', url: '../Programs' },
+  { title: 'Useful Information', url: '../UsefulInformation' },
+  { title: 'Academic Resources', url: '../AcademicResources' },
 ];
 
 const mainFeaturedPost = {

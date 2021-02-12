@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -30,7 +29,7 @@ const sections = [
 //   linkText: 'Go back to Home',
 // };
 
-class AboutUs extends React.Component {
+class Programs extends React.Component {
     
     render() {
 
@@ -40,7 +39,7 @@ class AboutUs extends React.Component {
           <Container maxWidth="lg">
             <Header title="MCS Programs" sections={sections} />
             {/* <main>
-              <MainFeaturedPost post={aboutUs} />
+              <MainFeaturedPost post={Programs} />
             </main> */}
             <body>
                 <h1>
@@ -150,4 +149,4 @@ class AboutUs extends React.Component {
     }
   }
   
-  export default AboutUs;
+  export default Programs;

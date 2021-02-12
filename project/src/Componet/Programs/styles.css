@@ -1,0 +1,38 @@
+#deadlines {
+    font-size: large;
+}
+#table1, #table2 {
+    border-collapse: collapse;
+    min-width: 50%;
+}
+#table1 {
+    max-width: 70%;
+}
+#table1 th, #table2 th{
+    padding: 8px;
+    background-color: #8770B1;
+    border: 1px solid white;
+    color: white;
+}
+#table1 td, #table2 td{
+    border: 1px solid white;
+    padding: 8px;
+}
+
+#table1 tr:nth-child(odd) {
+    background-color: #f2f2f2;
+    border: 1px solid white;
+}
+#table2 tr:nth-child(even) {
+    background-color: #f2f2f2;
+    border: 1px solid white;
+}
+
+a {
+    text-decoration: none;   
+    font-style: bold;
+    color: #7c55c4;
+}
+a:hover {
+    text-decoration: underline;
+}

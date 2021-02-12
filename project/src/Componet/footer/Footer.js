@@ -7,20 +7,21 @@ import Link from '@material-ui/core/Link';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import Sidebar from '../siderbar/Sidebar';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         Your Website
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const useStyles = makeStyles((theme) => ({
   footer: {

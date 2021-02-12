@@ -6,6 +6,7 @@ import Main from './Main';
 import AboutUs from './Componet/AboutUs/aboutUs';
 import Programs from './Componet/Programs/programs';
 import UsefulInformation from './Componet/UsefulInformation/usefulInformation';
+import OtherClubs from './Componet/OtherClubs/otherClubs';
 import AcademicResources from './Componet/AcademicResources/academicRescources';
 
 
@@ -21,6 +22,7 @@ class App extends React.Component{
 
             <Route exact path='/Programs' render={() => <Programs></Programs>}/>
             <Route exact path='/UsefulInformation' render={() => <UsefulInformation></UsefulInformation>}/> 
+            <Route exact path='/OtherClubs' render={() => <OtherClubs></OtherClubs>}/>
             <Route exact path='/AcademicResources' render={() => <AcademicResources></AcademicResources>}/> 
 
           </Switch>

@@ -1,0 +1,43 @@
+#collab {
+    text-align: center;
+    display: block;
+    margin: 0px auto;
+    width: 500px;
+}
+
+h2 {
+    text-align: center;
+}
+
+a.main_page {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #9CDAF7;
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+
+#other-club tr, #other-club td{
+    margin: 0px auto;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#other-club table{
+    margin: 0px auto;
+    width: 70%;
+}
+
+#other-club .clubs{
+    width: 200px;
+}
+
+#other-club .icon{
+    margin: 30px 20px;
+    width: 50px;
+}
+
+

@@ -20,6 +20,7 @@ const sections = [
   { title: 'Our Events', url: '#' },
   { title: 'Programs', url: '#' },
   { title: 'Resources', url: '#' },
+  { title: 'Information', url: '../UsefulInformation' },
   { title: 'Contact', url: '#' },
 ];
 

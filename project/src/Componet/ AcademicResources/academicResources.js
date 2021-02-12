@@ -43,5 +43,6 @@ class AcademicResources extends React.Component {
     }
 }
 
+
 export default AcademicResources;
 

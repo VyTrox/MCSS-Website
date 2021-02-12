@@ -20,6 +20,7 @@ class App extends React.Component{
 
             <Route exact path='/Programs' render={() => <Programs></Programs>}/>
             <Route exact path='/UsefulInformation' render={() => <UsefulInformation></UsefulInformation>}/> 
+            <Route exact path='/AcademicResources' render={() => <AcademicResources></AcademicResources>}/> 
 
           </Switch>
         </BrowserRouter>

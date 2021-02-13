@@ -27,14 +27,17 @@ class AcademicResources extends React.Component {
                 <CssBaseline />
                 <Container maxWidth="lg">
                   <Header title="Textbook Suggestion" sections={sections} />
+                  {/* <main>
+                    <MainFeaturedPost post={aboutUs} />
+              
+                  </main> */}
                   <body>
 
                     <h1>
                       Old Exams Repository
                     </h1>
 
-                    <img id ='logo' src='https://twitter.com/UTMlibrary/photo' alt='lib'>
-                    </img>
+                    
 
                     <br></br>
                     <div id='old_exams'>

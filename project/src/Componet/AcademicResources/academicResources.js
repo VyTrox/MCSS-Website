@@ -37,8 +37,6 @@ class AcademicResources extends React.Component {
                       Old Exams Repository
                     </h1>
 
-                    
-
                     <br></br>
                     <div id='old_exams'>
                       The library offical website offers old exams from all three campuses, which is accessible by login with UTORID.   

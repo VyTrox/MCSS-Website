@@ -6,7 +6,7 @@ import Main from './Main';
 import AboutUs from './Componet/AboutUs/aboutUs';
 import Programs from './Componet/Programs/programs';
 import UsefulInformation from './Componet/UsefulInformation/usefulInformation';
-import AcademicResources from './Componet/AcademicResources/academicRescources';
+import AcademicResources from './Componet/AcademicResources/academicResources';
 
 
 class App extends React.Component{

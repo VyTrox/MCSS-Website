@@ -26,7 +26,7 @@ export default function Sidebar(props) {
         Follow Our Social Media
       </Typography>
       {social.map((network) => (
-        <Link className='link' variant="body2" href="#" key={network}>
+        <Link className='link' variant="body2" href={network.link} key={network}>
           <Grid container direction="row" spacing={1} alignItems="center">
             <Grid item>
               <network.icon />

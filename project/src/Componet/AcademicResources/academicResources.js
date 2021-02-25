@@ -82,6 +82,7 @@ class AcademicResources extends React.Component {
             <Footer title="Footer" description="A UTM CSC301 Student Project" />
         </React.Fragment>
     );
+  }
 }
 
 

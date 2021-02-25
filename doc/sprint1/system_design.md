@@ -69,6 +69,14 @@ Responsibilities:
 Collaborators:
 - Yichun Liu
 
+**Class name: OtherClubs** 
+Parent class: React.Component  
+Responsibilities:  
+- Create a webpage which stores other MCS clubs' website links and social media links
+
+Collaborators:
+- Wentao Zhou
+
 
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.

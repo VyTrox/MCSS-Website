@@ -17,9 +17,11 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: 'Home', url: '../' },
   { title: 'About Us', url: '../AboutUs' },
+  { title: 'Other Clubs', url: '../OtherClubs' },
   { title: 'Programs', url: '../Programs' },
   { title: 'Useful Information', url: '../UsefulInformation' },
   { title: 'Academic Resources', url: '../AcademicResources' },
+  { title: 'MCSS Team', url: '../MCSSTeam' },
 ];
 
 
@@ -50,7 +52,6 @@ class UsefulInformation extends React.Component {
                   <ul>
                     <li><a href="../Programs" target="_blank">Programs information</a></li>
                     <li><a href="../AcademicResources" target="_blank">AcademicResources</a></li>
-                    <li><a href="../OtherClubs" target="_blank">Other Clubs</a></li>
                     <li><a href="https://www.utm.utoronto.ca/registrar/important-dates" target="_blank">Important dates</a></li>
                     <li><a href="https://www.utm.utoronto.ca/registrar/forms" target="_blank">Forms</a></li>
                     <li><a href="https://student.utm.utoronto.ca/cgpa/" target="_blank">CGPA calculator</a></li>

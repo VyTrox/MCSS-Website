@@ -27,10 +27,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-  { title: 'Home', url: '../' },
-  { title: 'About Us', url: '../AboutUs' },
-  { title: 'Programs', url: '../Programs' },
-  { title: 'Other Clubs', url: '../OtherClubs' },
+    { title: 'Home', url: '../' },
+    { title: 'About Us', url: '../AboutUs' },
+    { title: 'Other Clubs', url: '../OtherClubs' },
+    { title: 'Programs', url: '../Programs' },
+    { title: 'Useful Information', url: '../UsefulInformation' },
+    { title: 'Academic Resources', url: '../AcademicResources' },
+    { title: 'MCSS Team', url: '../MCSSTeam' },
 ];
 
 class OtherClubs extends React.Component {

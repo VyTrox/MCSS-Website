@@ -2,3 +2,27 @@
     display: inline-flex;
     padding: 10px
 }
+
+#shop {
+    font-size: 14px;
+    z-index:9999;
+    position:fixed; 
+    top: 30%; 
+    right:5px; 
+    width: 80px; 
+    height:150px; 
+    background-color:#e4e4e4; 
+    font-weight: bold;
+    padding: 2px; 
+    border-radius: 30px;
+}
+#shop a {
+    color: rgb(82, 163, 74);
+}
+#shop a:hover{
+    color: white;
+    text-decoration: none;
+}
+#shop img{
+    width: 60px;
+}

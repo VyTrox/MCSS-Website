@@ -5,6 +5,11 @@ import Container from '@material-ui/core/Container';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
+// images
+import logo from '../../Resource/Logo/MCSSLogo.png';
+
+
+// styles
 import '../../CSS/styles.css'
 import './styles.css'
 
@@ -49,7 +54,7 @@ class AboutUs extends React.Component {
                   About MCSS
                 </h1>
 
-                <img id ='logo' src='https://pbs.twimg.com/profile_images/768836007043137536/7eVB7xp_.jpg' alt='MCSSLogo'>
+                <img id ='logo' src={logo} alt='MCSSLogo'>
                 </img>
 
                 <div id='about-us'>

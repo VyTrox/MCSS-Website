@@ -9,7 +9,7 @@ import UsefulInformation from './Componet/UsefulInformation/usefulInformation';
 import AcademicResources from './Componet/AcademicResources/academicResources';
 import OtherClubs from './Componet/OtherClubs/otherClubs';
 import MCSSTeam from './Componet/MCSSTeam/mcssTeam';
-
+import Developer from './Componet/Developer/developer';
 
 class App extends React.Component{
 
@@ -26,7 +26,7 @@ class App extends React.Component{
             <Route exact path='/OtherClubs' render={() => <OtherClubs></OtherClubs>}/>
             <Route exact path='/AcademicResources' render={() => <AcademicResources></AcademicResources>}/> 
             <Route exact path='/MCSSTeam' render={() => <MCSSTeam></MCSSTeam>}/>
-
+            <Route exact path='/Developer' render={() => <Developer></Developer>}/>
           </Switch>
         </BrowserRouter>
       </div>

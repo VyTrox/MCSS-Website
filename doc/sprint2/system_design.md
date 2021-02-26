@@ -21,10 +21,11 @@ Collaborators:
 **Class name: footer** 
 Parent class: React.Component  
 Responsibilities:  
-- Footer section of the website and it contains description and siderbar(social link of MCSS).
+- Footer section of the website, it is available at the bottom of every page of the MCSS website. Mainly serves as a quick way to get to other social platforms that the MCSS is active on. An icon is shown besides for easy identification and easier navigation.
 
 Collaborators:  
 - Zechuan Liu 
+- Alex Quach
 
 **Class name: siderbar** 
 Parent class: React.Component  

@@ -79,19 +79,18 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
-                                <input type="hidden" value="zechuan.liu@mail.utoronto.ca" id="address" ></input> 
+                                <input type="text" value="zechuan.liu@mail.utoronto.ca" id="address" class="hide"></input> 
                                 <IconButton color="primary" size="large" onClick={() => copy("address")}>
                                     <Grid container direction="row" spacing={1} alignItems="center">
                                             <Grid item>
                                             <EmailIcon />
                                             </Grid>
                                     </Grid>
-                                </IconButton>
-
+                                </IconButton> 
                             </Grid>
                             <Grid item xs={12} alignItems="center">
                                 <img src={placeholder}  alt="Placeholder image" />
-                                <p>ZAlex Quach</p>
+                                <p>Alex Quach</p>
                                 <Link className='link' href="https://github.com/VyTrox" >
                                     <Grid container direction="row" spacing={1} alignItems="center">
                                             <Grid item>
@@ -100,6 +99,14 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
+                                <input type="text" value="alexruifeng.quach@mail.utoronto.ca" id="address" class="hide"></input> 
+                                <IconButton color="primary" size="large" onClick={() => copy("address")}>
+                                    <Grid container direction="row" spacing={1} alignItems="center">
+                                            <Grid item>
+                                            <EmailIcon />
+                                            </Grid>
+                                    </Grid>
+                                </IconButton>
                             </Grid>
                             <Grid item xs={12} alignItems="center">
                                 <img src={placeholder}  alt="Placeholder image" />
@@ -112,6 +119,14 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
+                                <input type="text" value=" kevinlang.qin@mail.utoronto.ca" id="address" class="hide"></input> 
+                                <IconButton color="primary" size="large" onClick={() => copy("address")}>
+                                    <Grid container direction="row" spacing={1} alignItems="center">
+                                            <Grid item>
+                                            <EmailIcon />
+                                            </Grid>
+                                    </Grid>
+                                </IconButton>
                             </Grid>
                             <Grid item xs={12} alignItems="center">
                                 <img src={placeholder}  alt="Placeholder image" />
@@ -124,6 +139,14 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
+                                <input type="text" value=" wentao.zhou@mail.utoronto.ca" id="address" class="hide"></input> 
+                                <IconButton color="primary" size="large" onClick={() => copy("address")}>
+                                    <Grid container direction="row" spacing={1} alignItems="center">
+                                            <Grid item>
+                                            <EmailIcon />
+                                            </Grid>
+                                    </Grid>
+                                </IconButton>
                             </Grid>
                             <Grid item xs={12} alignItems="center">
                                 <img src={placeholder}  alt="Placeholder image" />
@@ -136,6 +159,14 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
+                                <input type="text" value="y.cong@mail.utoronto.ca" id="address" class="hide"></input> 
+                                <IconButton color="primary" size="large" onClick={() => copy("address")}>
+                                    <Grid container direction="row" spacing={1} alignItems="center">
+                                            <Grid item>
+                                            <EmailIcon />
+                                            </Grid>
+                                    </Grid>
+                                </IconButton>
                             </Grid>
                             <Grid item xs={12} alignItems="center">
                                 <img src={placeholder}  alt="Placeholder image" />
@@ -148,6 +179,14 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
+                                <input type="text" value="yichun.liu@mail.utoronto.ca" id="address" class="hide"></input> 
+                                <IconButton color="primary" size="large" onClick={() => copy("address")}>
+                                    <Grid container direction="row" spacing={1} alignItems="center">
+                                            <Grid item>
+                                            <EmailIcon />
+                                            </Grid>
+                                    </Grid>
+                                </IconButton>
                             </Grid>
                             <Grid item xs={12} alignItems="center">
                                 <img src={placeholder}  alt="Placeholder image" />
@@ -160,6 +199,14 @@ class developer extends React.Component {
                                             <Grid item>GitHub</Grid>
                                     </Grid>
                                 </Link>
+                                <input type="text" value=" yiling.li@mail.utoronto.ca" id="address" class="hide"></input> 
+                                <IconButton color="primary" size="large" onClick={() => copy("address")}>
+                                    <Grid container direction="row" spacing={1} alignItems="center">
+                                            <Grid item>
+                                            <EmailIcon />
+                                            </Grid>
+                                    </Grid>
+                                </IconButton>
                             </Grid>
                             
                         </div>

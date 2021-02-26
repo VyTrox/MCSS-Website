@@ -77,6 +77,13 @@ Responsibilities:
 Collaborators:
 - Wentao Zhou
 
+**Class name: developer** 
+Parent class: React.Component  
+Responsibilities:  
+- Provide developers' github homepage and email address
+
+Collaborators:
+- Yichun Liu
 
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.

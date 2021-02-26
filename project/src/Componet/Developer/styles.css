@@ -20,10 +20,14 @@ div #page {
     font-size: 30px;
 }
 
-.Vice {
-    display: inline-block;
+.hide {
+    opacity: 0;
+    position: absolute;
+    z-index: -9999;
+    pointer-events: none;
 }
 
 .Associates {
     display: inline-block;
 }
+

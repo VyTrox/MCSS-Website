@@ -70,10 +70,10 @@ Responsibilities:
 Collaborators:
 - Yichun Liu
 
-**Class name: OtherClubs**  
+**Class name: MCSSTeam**  
 Parent class: React.Component  
 Responsibilities:  
-- Create a webpage which stores other MCS clubs' website links and social media links
+- Create a webpage which shows all the MCSS team members with their positions
 
 Collaborators:
 - Wentao Zhou

@@ -88,6 +88,14 @@ Responsibilities:
 Collaborators:
 - Yichun Liu
 
+**Class name:AcademicResources**
+Parent class: React.Component
+Responsibilities:
+- Display introduction and link for useful academic resources
+
+Collaborators:
+- Yiling Li
+
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.
 - Model

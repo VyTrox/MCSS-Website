@@ -31,9 +31,11 @@ Collaborators:
 Parent class: React.Component  
 Responsibilities:  
 - Link to other social platform of MCSS.
+- Display a small box in the right side of the web to redirect users to MCSS's shopify website (future proofing).
 
 Collaborators:  
 - Zechuan Liu 
+- Lang Qin
 
 **Class name: post**  
 Parent class: React.Component  

@@ -69,6 +69,10 @@ export default function Blog() {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+
+          <div>
+            Subscribe to our Mailchimp mailing list!
+          </div>
         </main>
       </Container>
       <Footer title="Footer" description="A UTM CSC301 Student Project" />

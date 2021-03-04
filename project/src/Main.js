@@ -8,6 +8,9 @@ import MainFeaturedPost from './Componet/post/MainFeaturedPost';
 import FeaturedPost from './Componet/post/FeaturedPost';
 import Footer from './Componet/footer/Footer';
 
+// styles
+import './CSS/styles.css'
+
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -70,9 +73,37 @@ export default function Blog() {
             ))}
           </Grid>
 
-          <div>
-            Subscribe to our Mailchimp mailing list!
+          <br></br>
+
+          {/* <!-- Begin Mailchimp Signup Form --> */}
+          <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"></link>
+          {/* <style type="text/css">
+            #mc_embed_signup {{background: '#fff', clear: 'left', font: '14px Helvetica, Arial, sans-serif' }}
+          </style> */}
+          <div id="mc_embed_signup">
+            <form action="https://outlook.us1.list-manage.com/subscribe/post?u=891576a33cd5274b1d0f928cd&amp;id=63e9cf1b48" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll"></div>
+                <h1>Subscribe To Our Newsletter!</h1>
+                <div id='text-medium'>Sign up to receive email updates on new events, news and more.</div>
+                {/* <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                  <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
+                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"></input>
+                </div> */}
+                <br></br>
+                <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response" style={{display: 'none'}}></div>
+                  <div class="response" id="mce-success-response" style={{display: 'none'}}></div>
+                </div>
+                <div style={{position: 'absolute', left: '-50000px'}} aria-hidden="true"><input type="text" name="b_891576a33cd5274b1d0f928cd_63e9cf1b48" tabindex="-1" value=""></input></div>
+                <div class="clear">
+                  <input type="submit" value="Sign up!" name="subscribe" id="mc-embedded-subscribe" class="button"></input>
+                </div>
+            </form>
           </div>
+
+          {/* <!--End mc_embed_signup--> */}
+
         </main>
       </Container>
       <Footer title="Footer" description="A UTM CSC301 Student Project" />

@@ -56,6 +56,27 @@ const featuredPosts = [
   },
 ];
 
+const mailchimp = `<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://utmmcss.us19.list-manage.com/subscribe/post?u=c764424eb2db9d2b40b82f5fe&amp;id=c642889e45" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+    <label for="mce-EMAIL">Subscribe to the MCSS Newsletter!</label>
+    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c764424eb2db9d2b40b82f5fe_c642889e45" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->`
+
 
 export default function Blog() {
   const classes = useStyles();
@@ -74,35 +95,8 @@ export default function Blog() {
           </Grid>
 
           <br></br>
-
-          {/* <!-- Begin Mailchimp Signup Form --> */}
-          <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"></link>
-          {/* <style type="text/css">
-            #mc_embed_signup {{background: '#fff', clear: 'left', font: '14px Helvetica, Arial, sans-serif' }}
-          </style> */}
-          <div id="mc_embed_signup">
-            <form action="https://outlook.us1.list-manage.com/subscribe/post?u=891576a33cd5274b1d0f928cd&amp;id=63e9cf1b48" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll"></div>
-                <h1>Subscribe To Our Newsletter!</h1>
-                <div id='text-medium'>Sign up to receive email updates on new events, news and more.</div>
-                {/* <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                <div class="mc-field-group">
-                  <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
-                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"></input>
-                </div> */}
-                <br></br>
-                <div id="mce-responses" class="clear">
-                  <div class="response" id="mce-error-response" style={{display: 'none'}}></div>
-                  <div class="response" id="mce-success-response" style={{display: 'none'}}></div>
-                </div>
-                <div style={{position: 'absolute', left: '-50000px'}} aria-hidden="true"><input type="text" name="b_891576a33cd5274b1d0f928cd_63e9cf1b48" tabindex="-1" value=""></input></div>
-                <div class="clear">
-                  <input type="submit" value="Sign up!" name="subscribe" id="mc-embedded-subscribe" class="button"></input>
-                </div>
-            </form>
-          </div>
-
-          {/* <!--End mc_embed_signup--> */}
+          
+          <div dangerouslySetInnerHTML={{ __html: mailchimp }} />
 
         </main>
       </Container>

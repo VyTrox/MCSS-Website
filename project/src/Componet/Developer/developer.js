@@ -60,7 +60,7 @@ class developer extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="Developer" sections={sections} />
+            <Header title="Developer" sections={sections} toggleTheme={this.props.toggleTheme}/>
             
                 <body>
                     <h1>

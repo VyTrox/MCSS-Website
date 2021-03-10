@@ -45,7 +45,7 @@ class OtherClubs extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="Other Clubs" sections={sections} />
+            <Header title="Other Clubs" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={aboutUs} />
               

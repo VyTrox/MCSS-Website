@@ -47,7 +47,7 @@ class AboutUs extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="About Us" sections={sections} />
+            <Header title="About Us" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={aboutUs} />
             </main> */}

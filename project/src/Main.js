@@ -54,14 +54,14 @@ const featuredPosts = [
 ];
 
 
-export default function Blog() {
+export default function Blog(props) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="MCSS" sections={sections} />
+        <Header title="MCSS" sections={sections} toggleTheme={props.toggleTheme}/>
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>

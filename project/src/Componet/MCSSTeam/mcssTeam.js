@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const sections = [
-    { title: 'Home', url: '../' },
-    { title: 'About Us', url: '../AboutUs' },
-    { title: 'Other Clubs', url: '../OtherClubs' },
-    { title: 'Programs', url: '../Programs' },
-    { title: 'Useful Information', url: '../UsefulInformation' },
-    { title: 'Academic Resources', url: '../AcademicResources' },
-    { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Home', url: '../' },
+  { title: 'About Us', url: '../AboutUs' },
+  { title: 'Other Clubs', url: '../OtherClubs' },
+  { title: 'Programs', url: '../Programs' },
+  { title: 'Useful Information', url: '../UsefulInformation' },
+  { title: 'Academic Resources', url: '../AcademicResources' },
+  { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Developer', url: '../Developer' }
 ];
 
 class MCSSTeam extends React.Component {
@@ -33,7 +34,7 @@ class MCSSTeam extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="Other Clubs" sections={sections} />
+            <Header title="Other Clubs" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={aboutUs} />
               

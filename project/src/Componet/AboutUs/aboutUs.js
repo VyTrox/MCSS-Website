@@ -27,6 +27,7 @@ const sections = [
   { title: 'Useful Information', url: '../UsefulInformation' },
   { title: 'Academic Resources', url: '../AcademicResources' },
   { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Developer', url: '../Developer' }
 ];
 
 // const aboutUs = {
@@ -50,7 +51,7 @@ class AboutUs extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header app = {app} greet = {greet} title="About Us" sections={sections} />
+            <Header app = {app} greet = {greet} title="About Us" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={aboutUs} />
             </main> */}

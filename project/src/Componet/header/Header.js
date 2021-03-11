@@ -6,6 +6,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { logout } from "../../actions/user";
+import Switch from '@material-ui/core/Switch';
+import Brightness2Icon from '@material-ui/icons/Brightness2';
+import Brightness2OutlinedIcon from '@material-ui/icons/Brightness2Outlined';
+
+
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -23,10 +28,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function Header(props) {
   const classes = useStyles();
-  const { sections, title, app, greet } = props;
-
+  const { sections, title, app, greet, toggleTheme } = props;
+  const [state, setState] = React.useState({
+    darkTheme: false,
+  });
+ 
+  var localTheme = window.localStorage.getItem('theme');
+  var checked = localTheme ? (localTheme === 'dark' ? true : false) : false;
+  const handleChange = () => {
+    checked ? window.localStorage.setItem('theme', 'light') :  window.localStorage.setItem('theme', 'dark');
+    checked = checked ? false : true;
+  };
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
@@ -52,6 +68,14 @@ export default function Header(props) {
           Sign in
         </Button>
         }
+      <Switch
+        checked={checked}
+        onChange={toggleTheme}
+        color="primary"
+      />}{
+      checked? <Brightness2Icon color="primary"></ Brightness2Icon> : <Brightness2OutlinedIcon color="primary"></ Brightness2OutlinedIcon>
+     
+    }
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (

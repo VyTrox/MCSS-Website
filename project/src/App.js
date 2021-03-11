@@ -12,7 +12,8 @@ import MCSSTeam from './Componet/MCSSTeam/mcssTeam';
 import Login from './Componet/Login/login';
 import Register from './Componet/Register/register';
 import { checkSession} from "./actions/user";
-
+import Developer from './Componet/Developer/developer';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 class App extends React.Component{
   constructor(props) {
@@ -24,7 +25,8 @@ class App extends React.Component{
     currentFirstName: null,
     currentLastName: null,
     currentEmail: null,
-    message: { type: "", body: "" }
+    message: { type: "", body: "" },
+    theme: window.localStorage.getItem('theme') ? window.localStorage.getItem('theme') : 'light'
   }
   render() {
     const date = new Date();
@@ -36,10 +38,31 @@ class App extends React.Component{
         greet = 'Good Afternoon';
     else if (hrs >= 17 && hrs <= 24 || hrs <=5)
         greet = 'Good Evening'
+
+  toggleTheme = () =>{
+    const localTheme = window.localStorage.getItem('theme');
+    window.localStorage.setItem('theme', localTheme ? (localTheme === 'light' ? 'dark' : 'light') : 'dark');
+    this.setState({theme: window.localStorage.getItem('theme')});
+  }
+  
+    const theme = createMuiTheme({
+      palette: {
+        type: this.state.theme,
+        primary: {
+          light: '#b193e7',
+          main: '#8770B1',
+          dark: '#665586',
+          contrastText: '#fff',
+        },
+      }
+    });
     return (
+      
       <div>
+        <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Switch>
+
             <Route exact path='/' render={props => (<Main {...props} app={this} greet={greet}/>)}/>
             <Route exact path='/Login' render={props => (<Login {...props} app={this}/>)}/>
             <Route exact path='/Register' render={ props => (<Register {...props} app={this}/>)}/>
@@ -50,8 +73,10 @@ class App extends React.Component{
             <Route exact path='/AcademicResources' render={props => (<AcademicResources {...props} app={this} greet={greet}/>)}/> 
             <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet}/>)}/>
 
+
           </Switch>
         </BrowserRouter>
+        </ThemeProvider>
       </div>
     )
   }

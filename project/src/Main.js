@@ -87,7 +87,7 @@ class Main extends React.Component {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header app = {app} greet = {greet} title="MCSS" sections={sections} toggleTheme={props.toggleTheme} />
+        <Header app = {app} greet = {greet} title="MCSS" sections={sections} toggleTheme={this.props.toggleTheme} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>

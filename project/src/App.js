@@ -28,6 +28,11 @@ class App extends React.Component{
     message: { type: "", body: "" },
     theme: window.localStorage.getItem('theme') ? window.localStorage.getItem('theme') : 'light'
   }
+  toggleTheme = () =>{
+    const localTheme = window.localStorage.getItem('theme');
+    window.localStorage.setItem('theme', localTheme ? (localTheme === 'light' ? 'dark' : 'light') : 'dark');
+    this.setState({theme: window.localStorage.getItem('theme')});
+  }
   render() {
     const date = new Date();
     const hrs = date.getHours();
@@ -38,13 +43,6 @@ class App extends React.Component{
         greet = 'Good Afternoon';
     else if (hrs >= 17 && hrs <= 24 || hrs <=5)
         greet = 'Good Evening'
-
-  toggleTheme = () =>{
-    const localTheme = window.localStorage.getItem('theme');
-    window.localStorage.setItem('theme', localTheme ? (localTheme === 'light' ? 'dark' : 'light') : 'dark');
-    this.setState({theme: window.localStorage.getItem('theme')});
-  }
-  
     const theme = createMuiTheme({
       palette: {
         type: this.state.theme,
@@ -63,15 +61,15 @@ class App extends React.Component{
         <BrowserRouter>
           <Switch>
 
-            <Route exact path='/' render={props => (<Main {...props} app={this} greet={greet}/>)}/>
-            <Route exact path='/Login' render={props => (<Login {...props} app={this}/>)}/>
-            <Route exact path='/Register' render={ props => (<Register {...props} app={this}/>)}/>
-            <Route exact path='/AboutUs' render={props => (<AboutUs {...props} app={this} greet={greet}/>)}/>
-            <Route exact path='/Programs' render={props => (<Programs {...props} app={this} greet={greet}/>)}/>
-            <Route exact path='/UsefulInformation' render={props => (<UsefulInformation {...props} app={this} greet={greet}/>)}/> 
-            <Route exact path='/OtherClubs' render={props => (<OtherClubs {...props} app={this} greet={greet} />)}/>
-            <Route exact path='/AcademicResources' render={props => (<AcademicResources {...props} app={this} greet={greet}/>)}/> 
-            <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet}/>)}/>
+            <Route exact path='/' render={props => (<Main {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/Login' render={props => (<Login {...props} app={this} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/Register' render={ props => (<Register {...props} app={this} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/AboutUs' render={props => (<AboutUs {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/Programs' render={props => (<Programs {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/UsefulInformation' render={props => (<UsefulInformation {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/> 
+            <Route exact path='/OtherClubs' render={props => (<OtherClubs {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/AcademicResources' render={props => (<AcademicResources {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/> 
+            <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
 
 
           </Switch>

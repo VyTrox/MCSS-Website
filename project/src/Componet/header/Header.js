@@ -39,13 +39,17 @@ export default function Header(props) {
  
   var localTheme = window.localStorage.getItem('theme');
   var checked = localTheme ? (localTheme === 'dark' ? true : false) : false;
-  const handleChange = () => {
-    checked ? window.localStorage.setItem('theme', 'light') :  window.localStorage.setItem('theme', 'dark');
-    checked = checked ? false : true;
-  };
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
+        <Switch
+          checked={checked}
+          onChange={toggleTheme}
+          color="primary"
+        />{
+        checked? <Brightness2Icon color="primary"></ Brightness2Icon> : <Brightness2OutlinedIcon color="primary"></ Brightness2OutlinedIcon>
+     
+        }
         <Typography
           component="h2"
           variant="h5"
@@ -68,14 +72,7 @@ export default function Header(props) {
           Sign in
         </Button>
         }
-      <Switch
-        checked={checked}
-        onChange={toggleTheme}
-        color="primary"
-      />}{
-      checked? <Brightness2Icon color="primary"></ Brightness2Icon> : <Brightness2OutlinedIcon color="primary"></ Brightness2OutlinedIcon>
-     
-    }
+        
       </Toolbar>
       <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
         {sections.map((section) => (

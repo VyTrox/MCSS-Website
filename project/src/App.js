@@ -9,21 +9,41 @@ import UsefulInformation from './Componet/UsefulInformation/usefulInformation';
 import AcademicResources from './Componet/AcademicResources/academicResources';
 import OtherClubs from './Componet/OtherClubs/otherClubs';
 import MCSSTeam from './Componet/MCSSTeam/mcssTeam';
+import Login from './Componet/Login/login';
+import Register from './Componet/Register/register';
+import { checkSession} from "./actions/user";
 import Developer from './Componet/Developer/developer';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 class App extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { theme: window.localStorage.getItem('theme') ? window.localStorage.getItem('theme') : 'light' };
+    checkSession(this); // sees if a user is logged in.
+
   }
+  state = {
+    currentFirstName: null,
+    currentLastName: null,
+    currentEmail: null,
+    message: { type: "", body: "" },
+    theme: window.localStorage.getItem('theme') ? window.localStorage.getItem('theme') : 'light'
+  }
+  render() {
+    const date = new Date();
+    const hrs = date.getHours();
+    var greet;
+    if (hrs > 5 && hrs < 12)
+        greet = 'Good Morning';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon';
+    else if (hrs >= 17 && hrs <= 24 || hrs <=5)
+        greet = 'Good Evening'
+
   toggleTheme = () =>{
     const localTheme = window.localStorage.getItem('theme');
     window.localStorage.setItem('theme', localTheme ? (localTheme === 'light' ? 'dark' : 'light') : 'dark');
     this.setState({theme: window.localStorage.getItem('theme')});
   }
-  
-  render() {
   
     const theme = createMuiTheme({
       palette: {
@@ -42,14 +62,18 @@ class App extends React.Component{
         <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Switch>
-            <Route exact path='/' render={() => <Main toggleTheme={this.toggleTheme}></Main>}/>
-            <Route exact path='/AboutUs' render={() => <AboutUs toggleTheme={this.toggleTheme}></AboutUs>}/>
-            <Route exact path='/Programs' render={() => <Programs toggleTheme={this.toggleTheme}></Programs>}/>
-            <Route exact path='/UsefulInformation' render={() => <UsefulInformation toggleTheme={this.toggleTheme}></UsefulInformation>}/> 
-            <Route exact path='/OtherClubs' render={() => <OtherClubs toggleTheme={this.toggleTheme}></OtherClubs>}/>
-            <Route exact path='/AcademicResources' render={() => <AcademicResources toggleTheme={this.toggleTheme}></AcademicResources>}/> 
-            <Route exact path='/MCSSTeam' render={() => <MCSSTeam toggleTheme={this.toggleTheme}></MCSSTeam>}/>
-            <Route exact path='/Developer' render={() => <Developer toggleTheme={this.toggleTheme}></Developer>}/>
+
+            <Route exact path='/' render={props => (<Main {...props} app={this} greet={greet}/>)}/>
+            <Route exact path='/Login' render={props => (<Login {...props} app={this}/>)}/>
+            <Route exact path='/Register' render={ props => (<Register {...props} app={this}/>)}/>
+            <Route exact path='/AboutUs' render={props => (<AboutUs {...props} app={this} greet={greet}/>)}/>
+            <Route exact path='/Programs' render={props => (<Programs {...props} app={this} greet={greet}/>)}/>
+            <Route exact path='/UsefulInformation' render={props => (<UsefulInformation {...props} app={this} greet={greet}/>)}/> 
+            <Route exact path='/OtherClubs' render={props => (<OtherClubs {...props} app={this} greet={greet} />)}/>
+            <Route exact path='/AcademicResources' render={props => (<AcademicResources {...props} app={this} greet={greet}/>)}/> 
+            <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet}/>)}/>
+
+
           </Switch>
         </BrowserRouter>
         </ThemeProvider>

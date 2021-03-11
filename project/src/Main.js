@@ -77,15 +77,17 @@ const mailchimp = `<!-- Begin Mailchimp Signup Form -->
 
 <!--End mc_embed_signup-->`
 
-
-export default function Blog(props) {
-  const classes = useStyles();
-
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render(){
+  const {app,greet} = this.props;
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="MCSS" sections={sections} toggleTheme={props.toggleTheme}/>
+        <Header app = {app} greet = {greet} title="MCSS" sections={sections} toggleTheme={props.toggleTheme} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -103,4 +105,6 @@ export default function Blog(props) {
       <Footer title="Footer" description="A UTM CSC301 Student Project" />
     </React.Fragment>
   );
+  }
 }
+export default Main;

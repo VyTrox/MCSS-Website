@@ -102,12 +102,14 @@ app.post("/users/login", (req, res) => {
             req.session.firstname = user.firstname;
             req.session.lastname = user.lastname;
             req.session.email = user.email;
+            req.session.isExec = user.isExec;
  // we will later send the email to the browser when checking if someone is logged in through GET /check-session (we will display it on the frontend dashboard. You could however also just send a boolean flag).
             res.send({ 
                 user: user._id,
                 currentEmail: user.email, 
                 currentFirstName: user.firstname,
                 currentLastName: user.lastname,
+                check: user.isExec
                 });
         })
         .catch(error => {
@@ -133,6 +135,7 @@ app.get("/users/check-session", (req, res) => {
         res.send({ currentEmail: req.session.email,
                     currentFirstName: req.session.firstname,
                     currentLastName: req.session.lastname,
+                    check: user.isExec
                 });
     } else {
         res.status(401).send();
@@ -148,6 +151,7 @@ app.post('/api/users', mongoChecker, async (req, res) => {
         firstname: req.body.firstname,
         email: req.body.email,
         password: req.body.password,
+        isExec: false
     })
 
     try {

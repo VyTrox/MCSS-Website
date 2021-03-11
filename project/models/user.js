@@ -34,6 +34,10 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 4
+	},
+	isExec: {
+		type: Boolean,
+		required: true
 	}
 })
 

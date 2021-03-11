@@ -25,6 +25,7 @@ class App extends React.Component{
     currentFirstName: null,
     currentLastName: null,
     currentEmail: null,
+    check: null,
     message: { type: "", body: "" },
     theme: window.localStorage.getItem('theme') ? window.localStorage.getItem('theme') : 'light'
   }

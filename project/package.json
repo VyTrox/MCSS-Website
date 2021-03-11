@@ -8,11 +8,17 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.25.0",
+    "connect-multiparty": "^2.2.0",
+    "express-session": "^1.17.1",
     "markdown-to-jsx": "^7.1.1",
+    "mongoose": "^5.11.18",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.2",
+    "validator": "^13.5.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

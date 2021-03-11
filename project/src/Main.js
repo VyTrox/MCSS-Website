@@ -54,14 +54,17 @@ const featuredPosts = [
 ];
 
 
-export default function Blog() {
-  const classes = useStyles();
-
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render(){
+  const {app,greet} = this.props;
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="MCSS" sections={sections} />
+        <Header app = {app} greet = {greet} title="MCSS" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -74,4 +77,6 @@ export default function Blog() {
       <Footer title="Footer" description="A UTM CSC301 Student Project" />
     </React.Fragment>
   );
+  }
 }
+export default Main;

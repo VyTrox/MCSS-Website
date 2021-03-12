@@ -60,6 +60,18 @@ export default function Header(props) {
         >
           {title}
         </Typography>
+        { app.state.check ?
+          <div>
+          <Button variant="outlined" size="small">
+            Create Posts
+          </Button>
+          </div>
+        :
+        <Button variant="outlined" size="small" onClick={()=>logout(app)} disabled>
+            Create Posts
+        </Button>
+        }
+        
         {app.state.currentEmail ? 
         <div>
           {`${greet}, ${app.state.currentFirstName}`}

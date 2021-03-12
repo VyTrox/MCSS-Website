@@ -26,13 +26,17 @@ const sections = [
 ];
 
 class AcademicResources extends React.Component {
+  constructor (props) {
+    super(props)
+  }
   
   render() {
+    const {app,greet} = this.props;
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-              <Header title="Academic Resources" sections={sections} toggleTheme={this.props.toggleTheme}/>
+              <Header app = {app} greet = {greet} title="Academic Resources" sections={sections} toggleTheme={this.props.toggleTheme}/>
               {/* <main>
                 <MainFeaturedPost post={aboutUs} />
           

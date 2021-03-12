@@ -18,23 +18,26 @@ Collaborators:
 - Alex Quach
 
 
-**Class name: footer** 
+**Class name: footer**  
 Parent class: React.Component  
 Responsibilities:  
-- Footer section of the website and it contains description and siderbar(social link of MCSS).
+- Footer section of the website, it is available at the bottom of every page of the MCSS website. Mainly serves as a quick way to get to other social platforms that the MCSS is active on. An icon is shown besides for easy identification and easier navigation.
 
 Collaborators:  
 - Zechuan Liu 
+- Alex Quach
 
-**Class name: siderbar** 
+**Class name: siderbar**  
 Parent class: React.Component  
 Responsibilities:  
 - Link to other social platform of MCSS.
+- Display a small box in the right side of the web to redirect users to MCSS's shopify website (future proofing).
 
 Collaborators:  
 - Zechuan Liu 
+- Lang Qin
 
-**Class name: post** 
+**Class name: post**  
 Parent class: React.Component  
 Responsibilities:  
 - Post section of MCSS and it can display information for user and executive team will be able to edit.
@@ -42,7 +45,7 @@ Responsibilities:
 Collaborators:  
 - Zechuan Liu 
 
-**Class name: header** 
+**Class name: header**  
 Parent class: React.Component  
 Responsibilities:  
 - head section of MCSS and it has multiple section for user to access.
@@ -50,7 +53,7 @@ Responsibilities:
 Collaborators:  
 - Zechuan Liu 
 
-**Class name: Programs** 
+**Class name: Programs**  
 Parent class: React.Component  
 Responsibilities:  
 - Display information about all MCS programs, including:
@@ -61,7 +64,7 @@ Collaborators:
 - Youan Cong
 - Lang Qin
 
-**Class name: UsefulInformation** 
+**Class name: UsefulInformation**  
 Parent class: React.Component  
 Responsibilities:  
 - Offer links for all kinds of information
@@ -69,6 +72,29 @@ Responsibilities:
 Collaborators:
 - Yichun Liu
 
+**Class name: MCSSTeam**  
+Parent class: React.Component  
+Responsibilities:  
+- Create a webpage which shows all the MCSS team members with their positions
+
+Collaborators:
+- Wentao Zhou
+
+**Class name: developer**  
+Parent class: React.Component  
+Responsibilities:  
+- Provide developers' github homepage and email address
+
+Collaborators:
+- Yichun Liu
+
+**Class name:AcademicResources**
+Parent class: React.Component
+Responsibilities:
+- Display introduction and link for useful academic resources
+
+Collaborators:
+- Yiling Li
 
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.

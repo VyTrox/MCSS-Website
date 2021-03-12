@@ -8,6 +8,9 @@ import MainFeaturedPost from './Componet/post/MainFeaturedPost';
 import FeaturedPost from './Componet/post/FeaturedPost';
 import Footer from './Componet/footer/Footer';
 
+// styles
+import './CSS/styles.css'
+
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
@@ -17,9 +20,12 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: 'Home', url: '../' },
   { title: 'About Us', url: '../AboutUs' },
+  { title: 'Other Clubs', url: '../OtherClubs' },
   { title: 'Programs', url: '../Programs' },
   { title: 'Useful Information', url: '../UsefulInformation' },
   { title: 'Academic Resources', url: '../AcademicResources' },
+  { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Developer', url: '../Developer' }
 ];
 
 const mainFeaturedPost = {
@@ -50,15 +56,38 @@ const featuredPosts = [
   },
 ];
 
+const mailchimp = `<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://utmmcss.us19.list-manage.com/subscribe/post?u=c764424eb2db9d2b40b82f5fe&amp;id=c642889e45" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+    <label for="mce-EMAIL">Subscribe to the MCSS Newsletter!</label>
+    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c764424eb2db9d2b40b82f5fe_c642889e45" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
 
-export default function Blog() {
-  const classes = useStyles();
+<!--End mc_embed_signup-->`
 
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render(){
+  const {app,greet} = this.props;
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="MCSS" sections={sections} />
+        <Header app = {app} greet = {greet} title="MCSS" sections={sections} toggleTheme={this.props.toggleTheme} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
@@ -66,9 +95,16 @@ export default function Blog() {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+
+          <br></br>
+          
+          <div dangerouslySetInnerHTML={{ __html: mailchimp }} />
+
         </main>
       </Container>
       <Footer title="Footer" description="A UTM CSC301 Student Project" />
     </React.Fragment>
   );
+  }
 }
+export default Main;

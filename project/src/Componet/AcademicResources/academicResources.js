@@ -21,20 +21,22 @@ const sections = [
   { title: 'Programs', url: '../Programs' },
   { title: 'Useful Information', url: '../UsefulInformation' },
   { title: 'Academic Resources', url: '../AcademicResources' },
+  { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Developer', url: '../Developer' }
 ];
 
 class AcademicResources extends React.Component {
   constructor (props) {
     super(props)
   }
-
+  
   render() {
     const {app,greet} = this.props;
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-              <Header app = {app} greet = {greet} title="Academic Resources" sections={sections} />
+              <Header app = {app} greet = {greet} title="Academic Resources" sections={sections} toggleTheme={this.props.toggleTheme}/>
               {/* <main>
                 <MainFeaturedPost post={aboutUs} />
           

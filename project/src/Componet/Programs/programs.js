@@ -4,9 +4,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
-
 import '../../CSS/styles.css'
 import './styles.css'
+import logo from '../../Resource/Logo/MCSSLogo.png';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -17,19 +17,26 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: 'Home', url: '../' },
   { title: 'About Us', url: '../AboutUs' },
+  { title: 'Other Clubs', url: '../OtherClubs' },
   { title: 'Programs', url: '../Programs' },
   { title: 'Useful Information', url: '../UsefulInformation' },
   { title: 'Academic Resources', url: '../AcademicResources' },
+  { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Developer', url: '../Developer' }
 ];
 
 
 class Programs extends React.Component {
+    constructor(props) {
+      super(props)
+    }
     render() {
+      const {app,greet} = this.props;
       return (
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="Programs" sections={sections} />
+          <Header app = {app} greet = {greet} title="Programs" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={aboutUs} />
             </main> */}
@@ -37,11 +44,6 @@ class Programs extends React.Component {
                 <h1>
                   MCS Programs
                 </h1>
-
-                <img id ='logo' src='https://pbs.twimg.com/profile_images/768836007043137536/7eVB7xp_.jpg' alt='MCSSLogo'>
-                </img>
-
-
                 <h2>Mathematics and Computational Sciences offer the following programs:</h2><br></br>
                 
                 <div id='bioinfo'>

@@ -17,9 +17,12 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: 'Home', url: '../' },
   { title: 'About Us', url: '../AboutUs' },
+  { title: 'Other Clubs', url: '../OtherClubs' },
   { title: 'Programs', url: '../Programs' },
   { title: 'Useful Information', url: '../UsefulInformation' },
   { title: 'Academic Resources', url: '../AcademicResources' },
+  { title: 'MCSS Team', url: '../MCSSTeam' },
+  { title: 'Developer', url: '../Developer' }
 ];
 
 
@@ -31,7 +34,7 @@ class UsefulInformation extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="Useful Information" sections={sections} />
+            <Header title="Useful Information" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={usefulinformation} />
             </main> */}
@@ -56,6 +59,7 @@ class UsefulInformation extends React.Component {
                     <li><a href="https://www.acorn.utoronto.ca/degree-explorer/" target="_blank">Degree explorer</a></li>
                     <li><a href="https://student.utm.utoronto.ca/examschedule/finalexams.php" target="_blank">Exam schedule</a></li>
                     <li><a href="https://student.utm.utoronto.ca/timetable/" target="_blank">Timetable</a></li>
+                    <li>...</li>
                   </ul>
                 </div>
             </body>

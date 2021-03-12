@@ -24,13 +24,17 @@ const sections = [
 ];
 
 class AcademicResources extends React.Component {
+  constructor (props) {
+    super(props)
+  }
 
   render() {
+    const {app,greet} = this.props;
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-              <Header title="Academic Resources" sections={sections} />
+              <Header app = {app} greet = {greet} title="Academic Resources" sections={sections} />
               {/* <main>
                 <MainFeaturedPost post={aboutUs} />
           
@@ -59,7 +63,7 @@ class AcademicResources extends React.Component {
                 
                 <li> <a href="https://www.utm.utoronto.ca/math-cs-stats/videos" target="_blank">MCS Educational Videos Website</a></li>
                   
-
+ 
                 <h1>
                   Free Study Room
                 </h1>

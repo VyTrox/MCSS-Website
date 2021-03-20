@@ -62,14 +62,12 @@ export default function Header(props) {
         </Typography>
         { app.state.check ?
           <div>
-          <Button variant="outlined" size="small">
+          <Button variant="outlined" size="small" href="../CreatePost">
             Create Posts
           </Button>
           </div>
         :
-        <Button variant="outlined" size="small" onClick={()=>logout(app)} disabled>
-            Create Posts
-        </Button>
+        <p>Visitor mode</p>
         }
         
         {app.state.currentEmail ? 

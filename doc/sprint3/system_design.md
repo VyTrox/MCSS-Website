@@ -49,9 +49,11 @@ Collaborators:
 Parent class: React.Component  
 Responsibilities:  
 - head section of MCSS and it has multiple section for user to access.
+- Have switch to let user switch between light and drak mode for all the pages.
 
 Collaborators:  
 - Zechuan Liu 
+- Lang Qin
 
 **Class name: Programs**  
 Parent class: React.Component  

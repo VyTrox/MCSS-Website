@@ -27,14 +27,16 @@ const sections = [
 
 
 class UsefulInformation extends React.Component {
-    
+    constructor(props) {
+      super(props)
+    }    
     render() {
-
+      const {app,greet} = this.props;
       return (
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header title="Useful Information" sections={sections} toggleTheme={this.props.toggleTheme}/>
+            <Header app = {app} greet = {greet} title="Useful Information" sections={sections} toggleTheme={this.props.toggleTheme}/>
             {/* <main>
               <MainFeaturedPost post={usefulinformation} />
             </main> */}

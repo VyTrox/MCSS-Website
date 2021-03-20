@@ -73,7 +73,7 @@ class App extends React.Component{
             <Route exact path='/AcademicResources' render={props => (<AcademicResources {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/> 
             <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/CreatePost' render={ props => (<Post {...props} app={this} toggleTheme={this.toggleTheme}/>)}/>
-
+            <Route exact path='/Developer' render={props => (<Developer {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
 
           </Switch>
         </BrowserRouter>

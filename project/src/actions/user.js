@@ -33,6 +33,14 @@ export const updateRegisterForm = (registerComp, field) => {
     });
 };
 
+export const updatePostForm = (postComp, field) => {
+    const value = field.value;
+    const name = field.name;
+    postComp.setState({
+        [name]: value
+    });
+};
+
 // A functon to update the login form state
 export const updateLoginForm = (loginComp, field) => {
     const value = field.value;
@@ -130,6 +138,45 @@ export const addUser = (registerComp, app) =>{
                 app.setState({
                     message: {
                         body: "Error: Could not add an user.",
+                        type: "error"
+                    }
+                });
+            }
+            alert(app.state.message.body)
+        })
+        .catch(error => {
+            console.log(error)
+        });
+}
+
+export const addPost = (postComp, app) =>{
+    const url = "/api/addPost";
+
+    const post = postComp.state
+    const request = new Request(url, {
+        method: "post",
+        body: JSON.stringify(post),
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        }
+    });
+    console.log(post)
+    // Send the request with fetch()
+    fetch(request)
+        .then(function (res) {
+            
+            if (res.status === 200) {
+                app.setState({
+                    message: {
+                        body: "Successfully create the post.",
+                        type: "success"
+                    }
+                });
+            } else {
+                app.setState({
+                    message: {
+                        body: "Error: Could not create the post.",
                         type: "error"
                     }
                 });

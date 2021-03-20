@@ -5,12 +5,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import Typography from '@material-ui/core/Typography';
 import {  withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { addUser, updateRegisterForm } from "../../actions/user";
-import { Route, Switch, BrowserRouter} from 'react-router-dom';
+import { addPost, updatePostForm } from "../../actions/user";
 
 
 const useStyles = theme => ({
@@ -38,13 +37,10 @@ class Post extends React.Component {
         super(props)
     }
     state = {
-        lastname: "",
-        firstname: "",
-        email: "",
-        password: "",
-    }
-    toLogin = () => {
-        return <Route exact path='/Login'/>
+        title: "",
+        description: "",
+        date: "",
+        image: "",
     }
     render(){
   const {classes} = this.props; 
@@ -54,10 +50,10 @@ class Post extends React.Component {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <CreateOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Create New Post
         </Typography>
         <form className='form' noValidate>
           <TextField
@@ -65,48 +61,56 @@ class Post extends React.Component {
             margin="normal"
             required
             fullWidth
-            id="lastname"
-            label="Last Name"
-            name="lastname"
-            autoComplete="lastname"
-            autoFocus
-            onChange={e => updateRegisterForm(this, e.target)} required
+            id="title"
+            label="Event Title"
+            name="title"
+            onChange={e => updatePostForm(this, e.target)} required
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="firstname"
-            label="First Name"
-            name="firstname"
-            autoComplete="firstname"
-            autoFocus
-            onChange={e => updateRegisterForm(this, e.target)} required
+            id="date"
+            label="Event Date"
+            type="date"
+            name="date"
+            onChange={e => updatePostForm(this, e.target)} required
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={e => updateRegisterForm(this, e.target)} required
+            multiline
+            rows={4}
+            id="description"
+            label="Event Description"
+            name="description"
+            onChange={e => updatePostForm(this, e.target)} required
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             variant="outlined"
             margin="normal"
-            required
             fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={e => updateRegisterForm(this, e.target)} required
+            required
+            id="image"
+            label="Image"
+            type="file"
+            name="image"
+            onChange={e => updatePostForm(this, e.target)} required
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <Button
             type="submit"
@@ -114,9 +118,9 @@ class Post extends React.Component {
             variant="contained"
             color="primary"
             className='submit'
-            onClick={(e) => {e.preventDefault();addUser(this, app)}}
+            onClick={(e) => {e.preventDefault();addPost(this, app)}}
           >
-            Sign Up
+            Post
           </Button>
           <Grid container>
             <Grid item >

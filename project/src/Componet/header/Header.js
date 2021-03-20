@@ -67,7 +67,9 @@ export default function Header(props) {
           </Button>
           </div>
         :
-        <p>Visitor mode</p>
+        <Button variant="outlined" size="small" href="../CreatePost">
+            Create Posts
+        </Button>
         }
         
         {app.state.currentEmail ? 

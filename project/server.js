@@ -12,10 +12,13 @@ const { mongoose } = require("./db/mongoose");
 mongoose.set('useFindAndModify', false); // for some deprecation issues
 
 // import the mongoose models
-const { User } = require("./models/user");
+const { User, newPost } = require("./models/user");
 
 // multipart middleware: allows you to access uploaded file from req.file
 const multipart = require('connect-multiparty');
+
+const fs = require('fs');
+const multer = require('multer');
 
 // cloudinary: configure using credentials found on your Cloudinary Dashboard
 // sign up for a free account here: https://cloudinary.com/users/register/free
@@ -72,6 +75,17 @@ const authenticate = (req, res, next) => {
         res.status(401).send("Unauthorized")
     }
 }
+
+// Store the uploaded image
+const store = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './src/Resource/PostImage')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname+'-'+Date.now())
+    } 
+})
+const upload = multer({storage: store})
 
 
 /*** Session handling **************************************/
@@ -143,7 +157,7 @@ app.get("/users/check-session", (req, res) => {
 });
 
 app.post('/api/users', mongoChecker, async (req, res) => {
-    log(req.body)
+    console.log(req.body)
 
     // Create a new user
     const user = new User({
@@ -198,6 +212,34 @@ app.delete('/users/:id', mongoChecker, (req, res) => {
     .catch(error => {
         res.status(500).send(); // server error, could not delete.
     });
+})
+
+app.post('/api/addPost', upload.single('image'), (req, res) => {
+    log(req.body)
+
+    // Create a new user
+    const post = new newPost({
+        title: req.body.title,
+        date: req.body.date,
+        description: req.body.description,
+        image: {
+            data: fs.readFileSync(path.join(__dirname + '/src/Resource/PostImage' + req.file.filename)),
+            contentType: 'image/png'
+        }
+    })
+
+    try {
+        // Save the user
+        const newPost = await post.save()
+        res.send(newPost)
+    } catch (error) {
+        if (isMongoError(error)) { // check for if mongo server suddenly disconnected before this request.
+            res.status(500).send('Internal server error')
+        } else {
+            log(error)
+            res.status(400).send('Bad Request') // bad request for changing the student.
+        }
+    }
 })
 
 

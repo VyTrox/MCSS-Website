@@ -52,7 +52,7 @@ function copy() {
     alert("Copied the text: " + copyText.value);
 }
 
-class developer extends React.Component {
+class Developer extends React.Component {
     
     render() {
 
@@ -219,4 +219,4 @@ class developer extends React.Component {
     }
   }
   
-  export default developer;
+  export default Developer;

@@ -12,10 +12,13 @@ const { mongoose } = require("./db/mongoose");
 mongoose.set('useFindAndModify', false); // for some deprecation issues
 
 // import the mongoose models
-const { User } = require("./models/user");
+const { User, Post } = require("./models/user");
 
 // multipart middleware: allows you to access uploaded file from req.file
 const multipart = require('connect-multiparty');
+
+const fs = require('fs');
+const multer = require('multer');
 
 // cloudinary: configure using credentials found on your Cloudinary Dashboard
 // sign up for a free account here: https://cloudinary.com/users/register/free
@@ -37,6 +40,7 @@ app.use(bodyParser.json());
 const session = require("express-session");
 const user = require("./models/user");
 app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.static(__dirname + '/public'));
 
 
 function isMongoError(error) { // checks for first error returned by promise rejection if Mongo database suddently disconnects
@@ -102,12 +106,14 @@ app.post("/users/login", (req, res) => {
             req.session.firstname = user.firstname;
             req.session.lastname = user.lastname;
             req.session.email = user.email;
+            req.session.isExec = user.isExec;
  // we will later send the email to the browser when checking if someone is logged in through GET /check-session (we will display it on the frontend dashboard. You could however also just send a boolean flag).
             res.send({ 
                 user: user._id,
                 currentEmail: user.email, 
                 currentFirstName: user.firstname,
                 currentLastName: user.lastname,
+                check: user.isExec
                 });
         })
         .catch(error => {
@@ -133,6 +139,7 @@ app.get("/users/check-session", (req, res) => {
         res.send({ currentEmail: req.session.email,
                     currentFirstName: req.session.firstname,
                     currentLastName: req.session.lastname,
+                    check: req.session.isExec
                 });
     } else {
         res.status(401).send();
@@ -140,7 +147,7 @@ app.get("/users/check-session", (req, res) => {
 });
 
 app.post('/api/users', mongoChecker, async (req, res) => {
-    log(req.body)
+    console.log(req.body)
 
     // Create a new user
     const user = new User({
@@ -148,6 +155,7 @@ app.post('/api/users', mongoChecker, async (req, res) => {
         firstname: req.body.firstname,
         email: req.body.email,
         password: req.body.password,
+        isExec: false
     })
 
     try {
@@ -197,7 +205,42 @@ app.delete('/users/:id', mongoChecker, (req, res) => {
 })
 
 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'src/Resource/PostImage')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    } 
+})
+const upload = multer({ storage: storage })
 
+app.post('/api/addPost', mongoChecker, upload.single('image'), (req, res) => {
+        log(req.file)
+
+        const post = new Post({
+            title: req.body.title,
+            description: req.body.description,
+            date: req.body.date,
+            image: {
+                data: fs.readFileSync(path.join(__dirname + '/src/Resource/PostImage/' + req.file.filename)),
+                contentType: 'image/png'
+            }
+        })
+    
+        try {
+            // Save the user
+            post.save()
+            res.redirect('/')
+        } catch (error) {
+            if (isMongoError(error)) { // check for if mongo server suddenly disconnected before this request.
+                res.status(500).send('Internal server error')
+            } else {
+                log(error)
+                res.status(400).send('Bad Request') // bad request for changing the student.
+            }
+        }
+})
 
 
 /*** Webpage routes below **********************************/

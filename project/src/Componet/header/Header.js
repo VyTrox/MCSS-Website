@@ -39,6 +39,7 @@ export default function Header(props) {
  
   var localTheme = window.localStorage.getItem('theme');
   var checked = localTheme ? (localTheme === 'dark' ? true : false) : false;
+  console.log(app.state.check, app.state.currentEmail);
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
@@ -60,6 +61,17 @@ export default function Header(props) {
         >
           {title}
         </Typography>
+        
+        { app.state.check ?
+          <div>
+          <Button variant="outlined" size="small" href="../CreatePost">
+            Create Posts
+          </Button>
+          </div>
+        :
+        <p>Visitor mode</p>
+        }
+        
         {app.state.currentEmail ? 
         <div>
           {`${greet}, ${app.state.currentFirstName}`}

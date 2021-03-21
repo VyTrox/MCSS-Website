@@ -15,7 +15,9 @@ export const checkSession = (app) => {
                 app.setState({
                     currentFirstName: json.currentFirstName,
                     currentLastName: json.currentLastName,
-                    currentEmail: json.currentEmail })
+                    currentEmail: json.currentEmail,
+                    check: json.check
+                    })
             }
         })
         .catch(error => {
@@ -66,7 +68,8 @@ export const login = (loginComp, app) => {
                 app.setState({ 
                     currentFirstName: json.currentFirstName,
                     currentLastName: json.currentLastName,
-                    currentEmail: json.currentEmail});
+                    currentEmail: json.currentEmail,
+                    check: json.check});
             }
         })
         .catch(error => {
@@ -87,6 +90,7 @@ export const logout = (app) => {
                 currentFirstName: null,
                 currentLastName: null,
                 currentEmail: null,
+                check: null,
                 message: { type: "", body: "" }
             });
             if(res.status == 200)
@@ -136,7 +140,6 @@ export const addUser = (registerComp, app) =>{
             console.log(error)
         });
 }
-
 // get all users
 export const getUsers = (comp) => {
     const url = "/api/getUsers";

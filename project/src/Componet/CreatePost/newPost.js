@@ -9,7 +9,6 @@ import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import Typography from '@material-ui/core/Typography';
 import {  withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { addPost, updatePostForm } from "../../actions/user";
 
 
 const useStyles = theme => ({
@@ -45,6 +44,14 @@ class Post extends React.Component {
     render(){
   const {classes} = this.props; 
   const { app } = this.props;
+  function compareDate() {
+    var event = new Date(document.getElementById('date').value);
+    var today = new Date();
+    if (event.getTime() < today.getTime()) {
+      alert("Not a future date");
+      document.getElementById('date').value=""
+    }
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -53,9 +60,9 @@ class Post extends React.Component {
           <CreateOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Create New Post
+          Post New Event
         </Typography>
-        <form className='form' noValidate>
+        <form method="POST" action="/api/addPost" enctype="multipart/form-data">
           <TextField
             variant="outlined"
             margin="normal"
@@ -64,7 +71,7 @@ class Post extends React.Component {
             id="title"
             label="Event Title"
             name="title"
-            onChange={e => updatePostForm(this, e.target)} required
+            //onChange={e => updatePostForm(this, e.target)} required
             InputLabelProps={{
               shrink: true,
             }}
@@ -75,10 +82,10 @@ class Post extends React.Component {
             required
             fullWidth
             id="date"
-            label="Event Date"
-            type="date"
+            label="Event Time"
+            type="datetime-local"
             name="date"
-            onChange={e => updatePostForm(this, e.target)} required
+            onChange={e => compareDate()}
             InputLabelProps={{
               shrink: true,
             }}
@@ -93,7 +100,6 @@ class Post extends React.Component {
             id="description"
             label="Event Description"
             name="description"
-            onChange={e => updatePostForm(this, e.target)} required
             InputLabelProps={{
               shrink: true,
             }}
@@ -107,7 +113,6 @@ class Post extends React.Component {
             label="Image"
             type="file"
             name="image"
-            onChange={e => updatePostForm(this, e.target)} required
             InputLabelProps={{
               shrink: true,
             }}
@@ -118,7 +123,6 @@ class Post extends React.Component {
             variant="contained"
             color="primary"
             className='submit'
-            onClick={(e) => {e.preventDefault();addPost(this, app)}}
           >
             Post
           </Button>
@@ -129,7 +133,7 @@ class Post extends React.Component {
               </Link>
             </Grid>
           </Grid>
-        </form>
+          </form>
       </div>
     </Container>
   );

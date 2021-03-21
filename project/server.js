@@ -12,7 +12,7 @@ const { mongoose } = require("./db/mongoose");
 mongoose.set('useFindAndModify', false); // for some deprecation issues
 
 // import the mongoose models
-const { User, newPost } = require("./models/user");
+const { User, Post } = require("./models/user");
 
 // multipart middleware: allows you to access uploaded file from req.file
 const multipart = require('connect-multiparty');
@@ -40,6 +40,7 @@ app.use(bodyParser.json());
 const session = require("express-session");
 const user = require("./models/user");
 app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.static(__dirname + '/public'));
 
 
 function isMongoError(error) { // checks for first error returned by promise rejection if Mongo database suddently disconnects
@@ -75,17 +76,6 @@ const authenticate = (req, res, next) => {
         res.status(401).send("Unauthorized")
     }
 }
-
-// Store the uploaded image
-const store = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './src/Resource/PostImage')
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname+'-'+Date.now())
-    } 
-})
-const upload = multer({storage: store})
 
 
 /*** Session handling **************************************/
@@ -149,7 +139,7 @@ app.get("/users/check-session", (req, res) => {
         res.send({ currentEmail: req.session.email,
                     currentFirstName: req.session.firstname,
                     currentLastName: req.session.lastname,
-                    check: user.isExec
+                    check: req.session.isExec
                 });
     } else {
         res.status(401).send();
@@ -214,36 +204,43 @@ app.delete('/users/:id', mongoChecker, (req, res) => {
     });
 })
 
-app.post('/api/addPost', upload.single('image'), (req, res) => {
-    log(req.body)
 
-    // Create a new user
-    const post = new newPost({
-        title: req.body.title,
-        date: req.body.date,
-        description: req.body.description,
-        image: {
-            data: fs.readFileSync(path.join(__dirname + '/src/Resource/PostImage' + req.file.filename)),
-            contentType: 'image/png'
-        }
-    })
-
-    try {
-        // Save the user
-        const newPost = await post.save()
-        res.send(newPost)
-    } catch (error) {
-        if (isMongoError(error)) { // check for if mongo server suddenly disconnected before this request.
-            res.status(500).send('Internal server error')
-        } else {
-            log(error)
-            res.status(400).send('Bad Request') // bad request for changing the student.
-        }
-    }
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'src/Resource/PostImage')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    } 
 })
+const upload = multer({ storage: storage })
 
+app.post('/api/addPost', mongoChecker, upload.single('image'), (req, res) => {
+        log(req.file)
 
-
+        const post = new Post({
+            title: req.body.title,
+            description: req.body.description,
+            date: req.body.date,
+            image: {
+                data: fs.readFileSync(path.join(__dirname + '/src/Resource/PostImage/' + req.file.filename)),
+                contentType: 'image/png'
+            }
+        })
+    
+        try {
+            // Save the user
+            post.save()
+            res.redirect('/')
+        } catch (error) {
+            if (isMongoError(error)) { // check for if mongo server suddenly disconnected before this request.
+                res.status(500).send('Internal server error')
+            } else {
+                log(error)
+                res.status(400).send('Bad Request') // bad request for changing the student.
+            }
+        }
+})
 
 
 /*** Webpage routes below **********************************/

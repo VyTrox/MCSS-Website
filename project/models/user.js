@@ -34,6 +34,33 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 4
+	},
+	isExec: {
+		type: Boolean,
+		required: true
+	}
+})
+
+const PostSchema = new mongoose.Schema({
+	title: {
+        type: String,
+		required: true,
+		minlegth: 1,
+		trim: true
+	},
+	date: {
+		type: Date,
+		required: true
+	},
+	description: {
+		type: String,
+		required: true,
+		minlength: 1,
+		trim: true
+	}, 
+	image: {
+		data: Buffer,
+		contentType: String
 	}
 })
 
@@ -76,5 +103,6 @@ UserSchema.statics.findByUsernamePassword = function(email, password) {
 }
 
 const User = mongoose.model('User', UserSchema)
-module.exports = { User }
+const Post = mongoose.model('Post', PostSchema)
+module.exports = { User, Post }
 

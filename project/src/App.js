@@ -13,6 +13,7 @@ import Login from './Componet/Login/login';
 import Register from './Componet/Register/register';
 import { checkSession} from "./actions/user";
 import Developer from './Componet/Developer/developer';
+import Calender from './Componet/Calender/calender';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 class App extends React.Component{
@@ -71,7 +72,7 @@ class App extends React.Component{
             <Route exact path='/AcademicResources' render={props => (<AcademicResources {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/> 
             <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/Developer' render={props => (<Developer {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
-
+            <Route exact path='/Calender' render={props => (<Calender {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
           </Switch>
         </BrowserRouter>
         </ThemeProvider>

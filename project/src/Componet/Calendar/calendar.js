@@ -7,14 +7,13 @@ import Footer from '../footer/Footer';
 import FullCalendar, { formatDate } from '@fullcalendar/react'
 import {  withStyles } from '@material-ui/core/styles';
 import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
 import IconButton from '@material-ui/core/IconButton';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import TextField from '@material-ui/core/TextField';
 import '../../CSS/styles.css'
 import './styles.css'
 import Grid from '@material-ui/core/Grid';
-import {handleTitle, handleStart, handleEnd} from './submit'
+import { getPosts } from "../../actions/posts";
 
 const sections = [
     { title: 'Home', url: '../' },
@@ -25,7 +24,9 @@ const sections = [
     { title: 'Academic Resources', url: '../AcademicResources' },
     { title: 'MCSS Team', url: '../MCSSTeam' },
     { title: 'Developer', url: '../Developer' },
-    { title: 'Calender', url: '../Calender' }
+    { title: 'Calendar', url: '../Calendar' },
+    { title: 'EventsPage', url: '../EventsPage' }
+
   ];
 
 
@@ -41,8 +42,8 @@ const sections = [
 
   
 
-//   let calenderEl = document.getElementById('calender')
-//   let calendar = new Calendar(calenderEl, {
+//   let calendarEl = document.getElementById('calendar')
+//   let calendar = new Calendar(calendarEl, {
 //     plugins: [ dayGridPlugin],
 //     initialView: 'dayGridMonth',
 //     events : [
@@ -50,36 +51,20 @@ const sections = [
 //       ],
 //     editable:'true'
 //   }); 
-class Calender extends React.Component {
+class Calendar extends React.Component {
     calendarComponentRef = React.createRef();
     constructor(props) {
       super(props)
 
-      this.state = {title: '', start:'',end:'',
-        event:[
-        {
-            title: 'cs',
-            start: '2021-03-09',
-            end:'2021-03-10'}    
-      ]}
+      this.state = {
+        posts:[]
+      }
+
     }  
  
-    // 2021-03-09
-    // 2021-03-18
-    // onFormSubmit(event) {
-    //     const title = event.target.title.value;
-    //     const start = event.target.start.value;
-    //     const end = event.target.end.value;
-    //     // do stuff
-    //     console.log("1")
-        
-    //     var calendar = new FullCalendar.Calendar(calenderEl)
-    //     calendar.addEvent({title: 'cs',
-    //     start: '2021-03-09',
-    //     end:'2021-03-18'})
-
-    //     calendar.render();
-    //   };
+    componentDidMount() {
+      getPosts(this)
+    }
 
     
 
@@ -91,9 +76,9 @@ class Calender extends React.Component {
           <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-              <Header app = {app} greet = {greet} title="Calender" sections={sections} toggleTheme={this.props.toggleTheme}/>
+              <Header app = {app} greet = {greet} title="Calendar" sections={sections} toggleTheme={this.props.toggleTheme}/>
               
-              <Grid container  >
+              {/* <Grid container  >
                     
                     <TextField 
                     id="title" 
@@ -102,7 +87,7 @@ class Calender extends React.Component {
                     name="title" 
                     required 
                     variant="outlined"
-                    value={this.state.event.title}
+                    value={this.state.title}
                     onChange={this.handleChange.bind(this)}
                      />
 
@@ -111,9 +96,9 @@ class Calender extends React.Component {
                     margin="normal"
                     
                     name="start" 
-                    type="date"
+                    type="datetime-local"
                     required variant="outlined" 
-                    value={this.state.event.start}
+                    value={this.state.start}
                     helperText="Start date"
                     onChange={this.handleChange.bind(this)}
                     />
@@ -125,8 +110,8 @@ class Calender extends React.Component {
                     name="end" 
                     required 
                     variant="outlined" 
-                    type="date"
-                    value={this.state.event.end}
+                    type="datetime-local"
+                    value={this.state.end}
                     helperText="End date"
                     onChange={this.handleChange.bind(this)}
                     />
@@ -139,20 +124,20 @@ class Calender extends React.Component {
                         >
                         <AddBoxIcon />
                     </IconButton>
-              </Grid>
+              </Grid> */}
               
                     
                     
               <body>
                   <h1>
-                    Calender
+                    Calendar
                   </h1>
   
-                  <div id='calender'>
+                  <div id='calendar'>
                   <FullCalendar
                         ref={this.calendarComponentRef}
-                        plugins={[ dayGridPlugin,interactionPlugin ]}
-                        events={ [...this.state.event]}
+                        plugins={[ dayGridPlugin ]}
+                        events={ [...this.state.posts]}
                         editable={true}
                         
                         
@@ -169,19 +154,19 @@ class Calender extends React.Component {
         );
       }
 
-    handleChange(e) {
-        this.setState({[e.target.name]: e.target.value});
+    // handleChange(e) {
+    //     this.setState({[e.target.name]: e.target.value});
+    // }
+
+    // add=()=> {
+    //     var array = this.state.posts;
+
+    //     array.push({title: this.state.title,
+    //     start: this.state.start,
+    //     end:this.state.end})
+    //     this.setState({posts: array})
+    // }
+
     }
 
-    add=()=> {
-        var array = this.state.event;
-
-        array.push({title: this.state.title,
-        start: this.state.start,
-        end:this.state.end})
-        this.setState({event: array})
-    }
-
-    }
-
-export default withStyles(useStyles)(Calender)
+export default withStyles(useStyles)(Calendar)

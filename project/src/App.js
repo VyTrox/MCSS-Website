@@ -13,6 +13,7 @@ import Login from './Componet/Login/login';
 import Register from './Componet/Register/register';
 import { checkSession} from "./actions/user";
 import Developer from './Componet/Developer/developer';
+import Calendar from './Componet/Calendar/calendar';
 import Post from './Componet/CreatePost/newPost';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import EventsPage from './Componet/EventsPage/eventsPage';
@@ -75,6 +76,7 @@ class App extends React.Component{
             <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/CreatePost' render={ props => (<Post {...props} app={this} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/Developer' render={props => (<Developer {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/Calendar' render={props => (<Calendar {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/EventsPage' render={props => (<EventsPage {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
 
           </Switch>

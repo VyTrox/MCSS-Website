@@ -15,6 +15,7 @@ import { checkSession} from "./actions/user";
 import Developer from './Componet/Developer/developer';
 import Post from './Componet/CreatePost/newPost';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import EventsPage from './Componet/EventsPage/eventsPage';
 
 class App extends React.Component{
   constructor(props) {
@@ -40,11 +41,11 @@ class App extends React.Component{
     const hrs = date.getHours();
     var greet;
     if (hrs > 5 && hrs < 12)
-        greet = 'Good Morning';
+        greet = ' Good Morning ';
     else if (hrs >= 12 && hrs <= 17)
-        greet = 'Good Afternoon';
+        greet = ' Good Afternoon ';
     else if (hrs >= 17 && hrs <= 24 || hrs <=5)
-        greet = 'Good Evening'
+        greet = ' Good Evening '
     const theme = createMuiTheme({
       palette: {
         type: this.state.theme,
@@ -74,6 +75,7 @@ class App extends React.Component{
             <Route exact path='/MCSSTeam' render={props => (<MCSSTeam {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/CreatePost' render={ props => (<Post {...props} app={this} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/Developer' render={props => (<Developer {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/EventsPage' render={props => (<EventsPage {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
 
           </Switch>
         </BrowserRouter>

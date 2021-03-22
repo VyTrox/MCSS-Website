@@ -229,7 +229,7 @@ app.post('/api/addPost', mongoChecker, upload.single('image'), (req, res) => {
         })
     
         try {
-            // Save the user
+            // Save the post
             post.save()
             res.redirect('/')
         } catch (error) {
@@ -240,6 +240,19 @@ app.post('/api/addPost', mongoChecker, upload.single('image'), (req, res) => {
                 res.status(400).send('Bad Request') // bad request for changing the student.
             }
         }
+})
+
+// a Get route to get all posts
+app.get('/api/posts', mongoChecker, async (req, res) => {
+
+    try {
+        const posts = await Post.find()
+        res.send({ posts })
+    } catch(error) {
+        log(error)
+        res.status(500).send("Internal Server Error")
+    }
+
 })
 
 

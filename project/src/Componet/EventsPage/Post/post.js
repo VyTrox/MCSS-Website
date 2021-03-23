@@ -3,6 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+import './styles.css'
+
 class Post extends React.Component {
 
     render() {
@@ -15,15 +17,16 @@ class Post extends React.Component {
                 <Grid container>
                     <Grid item md={6}>
                         <div>
-                            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+                            <Typography id='title' variant="h5" color="inherit" gutterBottom>
                                 {post.title}
                             </Typography>
-                            <Typography variant="h5" color="inherit" paragraph>
+                            <Typography id='description' variant="body1" color="inherit" paragraph>
                                 {post.description}
                             </Typography>
-                            <Typography variant="h5" color="inherit" paragraph>
+                            <img src={`data:image/png;base64,${post.image.data.toString('base64')}`}/>
+                            {/* <Typography variant="h5" color="inherit" paragraph>
                                 {post.date}
-                            </Typography>
+                            </Typography> */}
                         </div>
                     </Grid>
                 </Grid>

@@ -11,7 +11,7 @@ import Footer from '../footer/Footer';
 
 // styles
 import '../../CSS/styles.css'
-// import './styles.css'
+import './styles.css'
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -62,9 +62,9 @@ class EventsPage extends React.Component {
                   Recent Events
                 </h1>
                 <Grid id='events_list' container spacing={1}>
-                    <Grid container post xs={12} spacing={3}>
+                    <Grid direction={'column'} container post xs={12} spacing={1}>
                         {this.state.posts.map(post => (
-                            <Grid post xs = {4}>
+                            <Grid post xs = {12}>
                                 <Post
                                     key={uid(
                                         post

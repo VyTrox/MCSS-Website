@@ -61,10 +61,10 @@ class EventsPage extends React.Component {
                 <h1>
                   Recent Events
                 </h1>
-                <Grid id='events_list' container spacing={1}>
-                    <Grid direction={'column'} container post xs={12} spacing={1}>
+                <Grid id='events_list' container spacing={2}>
+                    <Grid direction={'column'} container item xs spacing={2}>
                         {this.state.posts.map(post => (
-                            <Grid post xs = {12}>
+                            <Grid item xs={12}>
                                 <Post
                                     key={uid(
                                         post

@@ -11,23 +11,20 @@ class Post extends React.Component {
     const {post} = this.props;
 
         return(
-            <Paper style={{ backgroundImage: `url(${post.image})` }}>
-                {<img style={{ display: 'none' }} src={post.image} alt='event_image' />}
-                <div/>
+            // <Paper style={{ backgroundImage: `url(${`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`})` }}>
+            <Paper>
                 <Grid container>
-                    <Grid item md={6}>
-                        <div>
-                            <Typography id='title' variant="h5" color="inherit" gutterBottom>
-                                {post.title}
-                            </Typography>
-                            <Typography id='description' variant="body1" color="inherit" paragraph>
-                                {post.description}
-                            </Typography>
-                            <img src={`data:image/png;base64,${post.image.data.toString('base64')}`}/>
-                            {/* <Typography variant="h5" color="inherit" paragraph>
-                                {post.date}
-                            </Typography> */}
-                        </div>
+                    <Grid item xs>
+                        {<img id='img' style={{ float: 'left' }} height={'250px'} src={`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`} alt={post.title} />}
+                        <Typography id='title' variant="h5" color="inherit" gutterBottom>
+                            {post.title}
+                        </Typography>
+                        <Typography id='description' variant="body1" color="inherit" paragraph>
+                            {post.description}
+                        </Typography>
+                        {/* <Typography variant="h5" color="inherit" paragraph>
+                            {post.date}
+                        </Typography> */}
                     </Grid>
                 </Grid>
             </Paper>

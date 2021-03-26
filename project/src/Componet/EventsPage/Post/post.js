@@ -20,8 +20,8 @@ class Post extends React.Component {
             <Paper>
                 <Grid container>
                     <Grid item xs>
-                    <img id='img' height={'250px'} src={`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`} />
-                        <Link id='title' variant="h5" color="inherit" onClick={()=>this.goto(post._id,home)}>
+                        {<img id='img' style={{ float: 'left' }} height={'250px'} src={`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`} alt={post.title} />}
+                        <Link id='title' onClick={()=>this.goto(post._id,home)}>
                             {post.title}
                         </Link>
                         <Typography variant="subtitle2" color="textSecondary">

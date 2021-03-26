@@ -5,7 +5,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import { logout } from "../../actions/user";
 import Switch from '@material-ui/core/Switch';
 import Brightness2Icon from '@material-ui/icons/Brightness2';
@@ -102,15 +101,15 @@ export default function Header(props) {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
-
+  
   const handleDrawerClose = () => {
     setOpen(false);
   };
- 
+
   var localTheme = window.localStorage.getItem('theme');
   var checked = localTheme ? (localTheme === 'dark' ? true : false) : false;
   return (
+    
     <React.Fragment>
       <AppBar position="fixed" color="primarys" className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -171,10 +170,11 @@ export default function Header(props) {
             color="inherit"
             aria-label="open drawer"
             edge="end"
+       
             onClick={handleDrawerOpen}
             className={clsx(open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="large"/>
           </IconButton>
         
       </Toolbar>

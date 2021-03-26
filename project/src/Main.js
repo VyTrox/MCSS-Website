@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const sections = [
   { title: 'Home', url: '../' },
+  { title: 'Events', url: '../EventsPage' },
   { title: 'About Us', url: '../AboutUs' },
   { title: 'Other Clubs', url: '../OtherClubs' },
   { title: 'Programs', url: '../Programs' },

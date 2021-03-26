@@ -110,7 +110,6 @@ export default function Header(props) {
  
   var localTheme = window.localStorage.getItem('theme');
   var checked = localTheme ? (localTheme === 'dark' ? true : false) : false;
-  console.log(app.state.check, app.state.currentEmail);
   return (
     <React.Fragment>
       <AppBar position="fixed" color="primarys" className={clsx(classes.appBar, {
@@ -125,6 +124,17 @@ export default function Header(props) {
         checked? <Brightness2Icon color="primary"></ Brightness2Icon> : <Brightness2OutlinedIcon color="primary"></ Brightness2OutlinedIcon>
      
         }
+        
+        { app.state.check ?
+          <div>
+          <Button variant="outlined" size="small" href="../CreatePost">
+            Create Posts
+          </Button>
+          </div>
+        :
+        null
+        }
+
         <Typography
           component="h2"
           variant="h5"
@@ -137,15 +147,6 @@ export default function Header(props) {
           {title}
         </Typography>
         
-        { app.state.check ?
-          <div>
-          <Button variant="outlined" size="small" href="../CreatePost">
-            Create Posts
-          </Button>
-          </div>
-        :
-        <p>Visitor mode</p>
-        }
         
         {app.state.currentEmail ? 
         <div>

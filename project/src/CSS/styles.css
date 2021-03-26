@@ -13,3 +13,9 @@ h1, h3, a:link {
 #text-medium {
     font-size: medium;
 }
+
+.logo2 {
+    height: 76px;
+    width:  76px;
+    margin: -7px 0px -12px 0px;
+}

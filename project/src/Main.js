@@ -7,6 +7,7 @@ import Header from './Componet/header/Header';
 import MainFeaturedPost from './Componet/post/MainFeaturedPost';
 import FeaturedPost from './Componet/post/FeaturedPost';
 import Footer from './Componet/footer/Footer';
+import { getPosts } from "./actions/posts";
 
 // styles
 import './CSS/styles.css'
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const sections = [
   { title: 'Home', url: '../' },
+  { title: 'Events', url: '../EventsPage' },
   { title: 'About Us', url: '../AboutUs' },
   { title: 'Other Clubs', url: '../OtherClubs' },
   { title: 'Programs', url: '../Programs' },
@@ -42,7 +44,7 @@ const mainFeaturedPost = {
 const featuredPosts = [
   {
     title: 'Post section 1',
-    date: 'Feb 12',
+    date: '2021-00-00T00:00:00.000Z',
     description:
       'This is content for post 1.',
     image: 'https://source.unsplash.com/random',
@@ -50,7 +52,7 @@ const featuredPosts = [
   },
   {
     title: 'Post section 2',
-    date: 'Feb 12',
+    date: '2021-00-00T00:00:00.000Z',
     description:
       'This is content for post 1.',
     image: 'https://source.unsplash.com/random',
@@ -61,7 +63,7 @@ const featuredPosts = [
 const mailchimp = `<!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
     /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
@@ -79,10 +81,24 @@ const mailchimp = `<!-- Begin Mailchimp Signup Form -->
 
 <!--End mc_embed_signup-->`
 
+
 class Main extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      posts:[]
+    }
   }
+
+  componentDidMount() {
+    getPosts(this)
+    if(this.state.posts.length <= 1){
+      this.setState({ posts: featuredPosts.slice(0,1) })
+    }else if(this.state.posts.length <= 1){
+      this.setState({ posts: featuredPosts })
+    }
+  }
+
   render(){
   const {app,greet} = this.props;
   return (
@@ -93,7 +109,7 @@ class Main extends React.Component {
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
+            {this.state.posts.slice(0, 2).map((post) => (
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>

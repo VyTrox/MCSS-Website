@@ -29,7 +29,6 @@ const sections = [
   { title: 'MCSS Team', url: '../MCSSTeam' },
   { title: 'Developer', url: '../Developer' },
   { title: 'Calendar', url: '../Calendar' },
-  { title: 'Events', url: '../EventsPage' }
 ];
 
 const mainFeaturedPost = {
@@ -110,7 +109,7 @@ class Main extends React.Component {
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
             {this.state.posts.slice(0, 2).map((post) => (
-              <FeaturedPost key={post.title} post={post} />
+              <FeaturedPost key={post.title} post={post} home={this} />
             ))}
           </Grid>
 

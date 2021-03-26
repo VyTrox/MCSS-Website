@@ -24,6 +24,12 @@ const useStyles = makeStyles({
 export default function FeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
+  var img;
+  if((typeof post.image) == "string"){
+    img = <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />;
+  }else{
+    img = <img id='img' style={{ float: 'left' }} height={'150px'} src={`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`} alt={post.title} />;
+  }
 
   return (
     <Grid item xs={12} md={6}>
@@ -35,7 +41,7 @@ export default function FeaturedPost(props) {
                 {post.title}
               </Typography>
               <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
+                {(new Date(post.date)).toString().substring(0, 21)}
               </Typography>
               <Typography variant="subtitle1" paragraph>
                 {post.description}
@@ -43,7 +49,7 @@ export default function FeaturedPost(props) {
             </CardContent>
           </div>
           <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+            {img}
           </Hidden>
         </Card>
       </CardActionArea>

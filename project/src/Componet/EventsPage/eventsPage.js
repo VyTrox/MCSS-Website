@@ -29,7 +29,8 @@ const sections = [
   { title: 'Academic Resources', url: '../AcademicResources' },
   { title: 'MCSS Team', url: '../MCSSTeam' },
   { title: 'Developer', url: '../Developer' },
-  { title: 'Calendar', url: '../Calendar' }
+  { title: 'Calendar', url: '../Calendar' },
+  { title: 'Events', url: '../EventsPage' }
 ];
 
 
@@ -41,14 +42,12 @@ class EventsPage extends React.Component {
       posts:[]
       }
     }
-
+    
     componentDidMount() {
       getPosts(this)
     }
-  
 
   render() {
-
     const {app,greet} = this.props;
     
     return (
@@ -56,7 +55,7 @@ class EventsPage extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <Container maxWidth="lg">
-            <Header app = {app} greet = {greet} title="About Us" sections={sections} toggleTheme={this.props.toggleTheme}/>
+            <Header app = {app} greet = {greet} title="Events" sections={sections} toggleTheme={this.props.toggleTheme}/>
 
             <body>
                 <h1>
@@ -70,7 +69,9 @@ class EventsPage extends React.Component {
                                     key={uid(
                                         post
                                     )}
-                                    post ={post}
+                                    post = {post}
+                                    app = {app}
+                                    home = {this}
                                 />
                             </Grid>
                         ))}

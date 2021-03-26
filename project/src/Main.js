@@ -28,7 +28,8 @@ const sections = [
   { title: 'Academic Resources', url: '../AcademicResources' },
   { title: 'MCSS Team', url: '../MCSSTeam' },
   { title: 'Developer', url: '../Developer' },
-  { title: 'Calendar', url: '../Calendar' }
+  { title: 'Calendar', url: '../Calendar' },
+  { title: 'Events', url: '../EventsPage' }
 ];
 
 const mainFeaturedPost = {

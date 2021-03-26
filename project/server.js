@@ -216,8 +216,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 app.post('/api/addPost', mongoChecker, upload.single('image'), (req, res) => {
-        log(req.file)
-
         const post = new Post({
             title: req.body.title,
             description: req.body.description,
@@ -255,6 +253,55 @@ app.get('/api/posts', mongoChecker, async (req, res) => {
 
 })
 
+app.get("/posts/:id", mongoChecker, async (req, res) => {
+
+    const id = req.params.id
+    try {
+        const post = await Post.findById({_id: id})
+        res.send({ post })
+    } catch(error) {
+        log(error)
+        res.status(500).send("Internal Server Error")
+    }
+
+})
+
+app.delete('/posts/:id', mongoChecker, authenticate, async (req, res) => {
+
+    const id = req.params.id
+    try {
+        const post = await Post.findByIdAndRemove(id)
+        if(!post) {
+            res.status(404).send()
+        } else {
+            res.send({ post })
+        }
+    } catch {
+        log(error)
+        res.status(500).send()
+    }
+})
+app.patch("/posts/:id", mongoChecker, (req, res) => {
+
+    const id =req.params.id
+    // const post = new Post({
+    //     title: req.body.title,
+    //     description: req.body.description,
+    //     date: req.body.date,
+    //     image: null
+    // })
+    Post.findOneAndUpdate({_id: id}, {$set: {"title": req.body.title, "date": req.body.date, 
+        "description": req.body.description}}, 
+            {new: true, useFindAndModify: false}).then((result)=>{
+                res.status(200).send(result)
+                res.redirect('/')
+            })
+            .catch((error) => {
+                log(error)
+                res.status(500).send("Internal Server Error")
+            })
+})
+
 
 /*** Webpage routes below **********************************/
 // Serve the build
@@ -263,7 +310,7 @@ app.use(express.static(path.join(__dirname, "/build")));
 // All routes other than above will go to index.html
 app.get("*", (req, res) => {
     // check for page routes that we expect in the frontend to provide correct status code.
-    const goodPageRoutes = ["/", "/Login", "/Register", "/AboutUs", "/AcademicResource", "/MCSSTeam", "/OtherClubs", "/Programs", "/UsefulInformation","/Calendar","/Developer"];
+    const goodPageRoutes = ["/", "/Login", "/Register", "/AboutUs", "/AcademicResource", "/MCSSTeam", "/OtherClubs", "/Programs", "/UsefulInformation","/Calendar","/Developer","/EventsPage"];
     if (!goodPageRoutes.includes(req.url)) {
         // if url not in expected page routes, set status to 404.
         res.status(404);

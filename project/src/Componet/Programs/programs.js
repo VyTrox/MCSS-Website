@@ -7,12 +7,20 @@ import Footer from '../footer/Footer';
 import '../../CSS/styles.css'
 import './styles.css'
 import logo from '../../Resource/Logo/MCSSLogo.png';
+import PropTypes from 'prop-types';
+import List from '@material-ui/core/List';
+import Link from '@material-ui/core/Link';
+import ListItem from '@material-ui/core/ListItem';
+import Collapse from '@material-ui/core/Collapse';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import { Route, MemoryRouter } from 'react-router';
+import { Link as RouterLink } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  mainGrid: {
-    marginTop: theme.spacing(3),
-  },
-}));
+
 
 const sections = [
   { title: 'Home', url: '../' },
@@ -24,9 +32,97 @@ const sections = [
   { title: 'Academic Resources', url: '../AcademicResources' },
   { title: 'MCSS Team', url: '../MCSSTeam' },
   { title: 'Developer', url: '../Developer' },
-  { title: 'Calendar', url: '../Calendar' }
+  { title: 'Calendar', url: '../Calendar' },
+  { title: 'Events', url: '../EventsPage' }
 ];
 
+const breadcrumbNameMap = {
+  '/bio': 'Bioinformatics',
+  '/bio/spec': 'Specialist',
+  '/cs': 'Computer Science',
+  '/cs/spec': 'Specialist',
+  '/is': 'Information Security',
+  '/mat': 'Mathematics',
+  '/sta': 'Statistics',
+};
+
+function ListItemLink(props) {
+  const { to, open, ...other } = props;
+  const primary = breadcrumbNameMap[to];
+
+  return (
+    <li>
+      <ListItem button component={RouterLink} to={to} {...other}>
+        <ListItemText primary={primary} />
+        {open != null ? open ? <ExpandLess /> : <ExpandMore /> : null}
+      </ListItem>
+    </li>
+  );
+}
+
+ListItemLink.propTypes = {
+  open: PropTypes.bool,
+  to: PropTypes.string.isRequired,
+};
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 200
+  },
+  lists: {
+  
+    marginTop: theme.spacing(1),
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
+  },
+}));
+
+const LinkRouter = (props) => <Link {...props} component={RouterLink} />;
+
+function RouterBreadcrumbs() {
+  const classes = useStyles();
+  const [open1, setOpen1] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
+  const [open5, setOpen5] = React.useState(false);
+
+ 
+
+  return (
+    <MemoryRouter initialEntries={['/']} initialIndex={0}>
+      <div className={classes.root}>
+        
+        <nav className={classes.lists} aria-label="mailbox folders">
+          <List>
+            <ListItemLink to="/bio" open={open1} onClick={() => {setOpen1((prevOpen) => !prevOpen);}} />
+            <Collapse component="li" in={open1} timeout="auto" unmountOnExit>
+              <List disablePadding>
+                <ListItemLink to="/bio/spec" className={classes.nested} onClick={() => {
+                    document.getElementById('bioinfo').scrollIntoView({ behavior: 'smooth' });
+                }}/>
+              </List>
+            </Collapse>
+            <ListItemLink to="/cs" open={open2} onClick={() => {setOpen2((prevOpen) => !prevOpen);}} />
+            <Collapse component="li" in={open2} timeout="auto" unmountOnExit>
+              <List disablePadding>
+              <ListItemLink to="/cs/spec" className={classes.nested} onClick={() => {
+                    document.getElementById('cs').scrollIntoView({ behavior: 'smooth' });
+                }}/>
+              </List>
+            </Collapse>
+            <ListItemLink to="/is" />
+            <ListItemLink to="/mat" />
+            <ListItemLink to="/sta" />
+          </List>
+        </nav>
+      </div>
+    </MemoryRouter>
+  );
+}
 
 class Programs extends React.Component {
     constructor(props) {
@@ -39,142 +135,136 @@ class Programs extends React.Component {
           <CssBaseline />
           <Container maxWidth="lg">
           <Header app = {app} greet = {greet} title="Programs" sections={sections} toggleTheme={this.props.toggleTheme}/>
-            {/* <main>
-              <MainFeaturedPost post={aboutUs} />
-            </main> */}
-            <body>
-                <h1>
-                  MCS Programs
-                </h1>
-                <h2>Mathematics and Computational Sciences offer the following programs:</h2><br></br>
-                
+          <div id="programs">
+            <div id="breadcrumbs">
+              <RouterBreadcrumbs/>
+            </div>
+            <div id="contents">
                 <div id='bioinfo'>
-                  <h3>Bioinformatics</h3><br></br>
+                  <h1>Bioinformatics</h1><br></br>
                   Bioinformatics is an interdisciplinary science that combines Biology, Computer Science, Statistics, Mathematics and Chemistry. 
                   Bioinformatics is the managing of large amounts of biological information generated from research using advanced computational methods/programs.           
-                  <br></br>
-                  <br></br>
-                  Specialist Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: BIO152H5; CHM110H5, CHM120H5; CSC108H5, CSC148H5; MAT102H5, (MAT132H5, MAT134H5) / (MAT135H5, MAT136H5) / MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5</li>
-                    <li>At least 60% in all 100-level computer science and mathematics courses.</li>
-                    <li>a minimum Cumulative Grade Point Average (CGPA) of 2.0.</li>
-                  </ul>
+                  <h3>Specialist</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                      
+                      <li>course code</li>
+                    </ul>
                 </div><br></br>
 
                 <div id='cs'>
-                  <h3>Computer Science</h3><br></br>
+                  <h1>Computer Science</h1><br></br>
                   Computer science is concerned in the broadest sense with the study of computation and applications of computing. 
                   Its development has been stimulated by collaborations with many areas including engineering, the physical and life sciences, mathematics and statistics and commerce.
-                  <br></br>
-                  <br></br>
-                  Specialist Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: CSC108H5, CSC148H5; MAT102H5, (MAT132H5, MAT134H5)/(MAT135H5, MAT136H5) / MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5</li>
-                    <li>A minimum course mark in CSC148H5 and MAT102H5 of 65</li>
-                    <li>A minimum Cumulative Grade Point Average (CGPA) of 2.0</li>
-                  </ul>
-                  <br></br>
-                  <br></br>
-                  Major Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: CSC108H5, CSC148H5; MAT102H5, (MAT132H5,MAT134H5)/(MAT135H5, MAT136H5)/MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5</li>
-                    <li>A minimum course mark in CSC148H5 and MAT102H5 of 60</li>
-                    <li>A minimum Cumulative Grade Point Average (CGPA) of 2.0</li>
-                  </ul>
+                  <h3>Specialist</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li><a href="https://student.utm.utoronto.ca/calendar/OpenCourse.pl?Course=CSC290H5">CSC290</a>:</li>
+                        It is a great course for you to improve both your written 
+                        and oral communication skills as a computer science student. Throughout the course you will have oppotinities to write short pieces of articles on interesting topics, participate in group presentations, even 
+                        learn to construct your resume! You may thank to this course a lot when you step into the future carrer or industry. Also, this can be used to satisfy 
+                        the writing requirement in CSC programs.<br></br>
+                      <li><a href="https://student.utm.utoronto.ca/calendar/OpenCourse.pl?Course=LIN204H5">LIN204</a>:</li>
+                        This course provide you more insight into grammatical concepts of English. You have the opportunity to build and 
+                        reinforce your grammar skills. And this course does not have any prerequisites, anyone can take it! You can also take this course to satisfy 
+                        the writing requirement in CSC programs.<br></br>
+                    </ul>
+                  <h3>Major</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                       
+                    </ul>
+                  <h3>Minor</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                       
+                    </ul>
                 </div><br></br>
 
                 <div id='infosec'>
-                  <h3>Information Security</h3><br></br>
+                  <h1>Information Security</h1><br></br>
                   The Specialist in Information Security is a Computer Science program that includes courses in all the major aspects of information and computer security. 
                   We have courses giving an overview of the field, as well as in-depth courses in the systems, number theory and computation complexity aspects of computer security. 
-                  <br></br>
-                  <br></br>
-                  Specialist Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: CSC108H5, CSC148H5; MAT102H5, (MAT132H5,MAT134H5) / (MAT135H5, MAT136H5)/MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5, MAT223H5/MAT240H5</li>
-                    <li>A minimum course mark in CSC148H5 and MAT102H5 of 65</li>
-                    <li>A minimum Cumulative Grade Point Average (CGPA) of 2.0</li>
-                  </ul>
+                  <h3>Specialist</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                    </ul>
+                 
                 </div><br></br>
-
-                <div id='math'>
-                  <h3>Mathematics</h3><br></br>
-                  The Mathematical Sciences Specialist program at the University of Toronto Mississauga provides students 
+                <div id='mat'>
+                <h1>Mathematics</h1><br></br>
+                The Mathematical Sciences Specialist program at the University of Toronto Mississauga provides students 
                   with a solid foundation in the fundamental theoretical aspects of the mathematical sciences along with a broad range of techniques for applying this theory.
-                  <br></br>
-                  <br></br>
-                  Specialist Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: CSC108H5, CSC148H5; MAT102H5, MAT137Y5/MAT157Y5, MAT240H5</li>
-                    <li>At least 60% in MAT102H5</li>
-                    <li>At least 60% in MAT137Y5/MAT157Y5</li>
-                    <li>A minimum cumulative grade point average (CGPA), to be determined annually</li>
-                  </ul>
-                  Major Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: MAT102H5, (MAT132H5, MAT134H5)/(MAT135H5, MAT136H5)/MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5, MAT223H5/MAT240H5</li>
-                    <li>At least 60% in MAT102H5</li>
-                    <li>At least 60% in MAT134H5/MAT136H5/MAT134Y5/MAT135Y5/MAT137Y5/MAT233H5 or 50% in MAT157Y5</li>
-                    <li>A minimum cumulative grade point average, to be determined annually</li>
-                  </ul>
+                  <h3>Specialist</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                      
+                    </ul>
+                  <h3>Major</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                        
+                    </ul>
+                  <h3>Minor</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                        
+                    </ul>
                 </div><br></br>
 
                 <div id='stat'>
-                <h3>Statistics</h3>
+                <h1>Statistics</h1><br></br>
                   Applied Statistics is offered throught the Department of Mathematical and Computational Sciences as a Specialist, a Major and a Minor.
-                  <br></br>
-                  <br></br>
-                  Specialist Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: CSC108H5; MAT102H5, (MAT132H5, MAT134H5)/(MAT135H5, MAT136H5)/MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5, MAT223H5/MAT240H5</li>
-                    <li>At least 60% in STA107H5 or 60% in STA256H5/STA257H5</li>
-                    <li>At least 60% in MAT137Y5/MAT157Y5 or 60% in MAT134H5/MAT136H5/MAT134Y5/MAT135Y5 or 55% in MAT233H5</li>
-                    <li>A minimum cumulative grade point average (CGPA), to be determined annually</li>
-                  </ul>
-                  Major Program requirements:<br></br>
-                  <ul>
-                    <li>First year courses: CSC108H5; MAT102H5, (MAT132H5,MAT134H5)/(MAT135H5, MAT136H5) / MAT134Y5/MAT135Y5/MAT137Y5/MAT157Y5, 223H5/240H5</li>
-                    <li>At least 60% 60% in STA107H5 or 60% in STA256H5/STA257H5</li>
-                    <li>A minimum cumulative grade point average (CGPA), to be determined annually</li>
-                  </ul>
+                  <h3>Specialist</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                        
+                    </ul>
+                  <h3>Major</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                        
+                    </ul>
+                  <h3>Minor</h3>
+                  <h4>Recommended Courses:</h4>
+                    <ul>
+                      <li>course code</li>
+                        
+                      <li>course code</li>
+                        
+                    </ul>
                 </div><br></br>
-                <h1>
-                  Important Dates & Deadlines
-                </h1>
-                <div id='deadlines'>
-                <ul>
-                    <li>Application Deadlines for Type 2 and Type 3 programs:</li>
-                    <table id="table1">
-                        <th></th><th>Application Round 1 - Spring 2021</th> <th>Appplication Round 2 - Summer 2021</th>
-                        <tr><td>Program request period on <a href="https://www.acorn.utoronto.ca/">ACORN</a></td><td>March 9 - April 30</td><td>June 7 - August 27</td></tr>
-                        <tr><td>If you receive an invitation to your program on ACORN, time period for you to accept the offer</td>
-                            <td>May 1 - June 2</td><td>June 8 - September 20</td></tr>
-                    </table>
-                    <br></br>
-                    <li>Application Deadlines for Type 1 programs:</li>
-                        <p>Enrol any time on <a href="https://www.acorn.utoronto.ca/">ACORN</a></p>
-                    <li>MCS Program Tpyes:</li>
-                    <table id="table2">
-                        <th>Program Name</th><th>Level</th><th>Program Type</th>
-                        <tr><td>Bioinformatics</td><td>Specialist</td><td>Type 2</td></tr>
-                        <tr><td>Computer Science</td><td>Specialist</td><td>Type 3</td></tr>
-                        <tr><td></td><td>Major</td><td>Type 3</td></tr>
-                        <tr><td></td><td>Minor</td><td>Type 1</td></tr>
-                        <tr><td>Information Security</td><td>Specialist</td><td>Type 3</td></tr>
-                        <tr><td>Mathmatics</td><td>Specialist</td><td>Type 2</td></tr>
-                        <tr><td></td><td>Major</td><td>Type 2</td></tr>
-                        <tr><td></td><td>Minor</td><td>Type 1</td></tr>
-                        <tr><td>Statistics</td><td>Specialist</td><td>Type 2</td></tr>
-                        <tr><td></td><td>Major</td><td>Type 2</td></tr>
-                        <tr><td></td><td>Minor</td><td>Type 1</td></tr>
-                           
-                    </table>
-                </ul>
-                <p>For more detailed information, plesae visit <a href="https://www.utm.utoronto.ca/registrar/program-guide">here.</a></p>
-                </div>
+            
                 
-            </body>
+
+            </div>
+          </div>
+          
+            
           </Container>
           <Footer title="Footer" description="A UTM CSC301 Student Project" />
         </React.Fragment>

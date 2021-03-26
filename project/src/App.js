@@ -17,6 +17,7 @@ import Calendar from './Componet/Calendar/calendar';
 import Post from './Componet/CreatePost/newPost';
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import EventsPage from './Componet/EventsPage/eventsPage';
+import PostPage from './Componet/EventsPage/PostPage/postpage';
 
 class App extends React.Component{
   constructor(props) {
@@ -78,6 +79,7 @@ class App extends React.Component{
             <Route exact path='/Developer' render={props => (<Developer {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/Calendar' render={props => (<Calendar {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
             <Route exact path='/EventsPage' render={props => (<EventsPage {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/>
+            <Route exact path='/posts/:id' render={ props => (<PostPage {...props} app={this} greet={greet} toggleTheme={this.toggleTheme}/>)}/> 
 
           </Switch>
         </BrowserRouter>

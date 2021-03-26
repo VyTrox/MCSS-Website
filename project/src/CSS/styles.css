@@ -13,3 +13,9 @@ h1, h3 {
 #text-medium {
     font-size: medium;
 }
+
+#logo2 {
+    margin: 0;
+    height: 60px;
+    width:80px;
+}

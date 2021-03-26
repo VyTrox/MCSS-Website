@@ -42,6 +42,13 @@ class EventsPage extends React.Component {
       posts:[]
       }
     }
+
+    // reversePosts() {
+    //   const reversed = [...this.state.posts]
+    //   reversed.reverse()
+    //   this.setState({posts: reversed})
+    //   console.log(reversed)
+    // }
     
     componentDidMount() {
       getPosts(this)

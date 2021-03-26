@@ -244,7 +244,7 @@ app.post('/api/addPost', mongoChecker, upload.single('image'), (req, res) => {
 app.get('/api/posts', mongoChecker, async (req, res) => {
 
     try {
-        const posts = await Post.find()
+        const posts = await Post.find().sort({$natural:-1})
         res.send({ posts })
     } catch(error) {
         log(error)

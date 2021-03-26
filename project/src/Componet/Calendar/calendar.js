@@ -25,7 +25,7 @@ const sections = [
     { title: 'MCSS Team', url: '../MCSSTeam' },
     { title: 'Developer', url: '../Developer' },
     { title: 'Calendar', url: '../Calendar' },
-    { title: 'EventsPage', url: '../EventsPage' }
+    { title: 'Events', url: '../EventsPage' }
 
   ];
 

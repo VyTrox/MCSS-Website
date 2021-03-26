@@ -21,15 +21,16 @@ class Post extends React.Component {
             <Paper>
                 <Grid container>
                     <Grid item xs>
-                        <Link id='title' variant="h5" color="inherit" onClick={()=>this.goto(post._id,home)}>
+                        {<img id='img' style={{ float: 'left' }} height={'250px'} src={`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`} alt={post.title} />}
+                        <Link id='title' onClick={()=>this.goto(post._id,home)}>
                             {post.title}
+                        </Link>
                         <Typography variant="subtitle2" color="textSecondary">
                             {(new Date(post.date)).toString().substring(0, 21)}
                         </Typography>
                         <Typography id='description' variant="body1" color="inherit" paragraph>
                             {post.description}
                         </Typography>
-                        </Link>
                     </Grid>
                 </Grid>
             </Paper>

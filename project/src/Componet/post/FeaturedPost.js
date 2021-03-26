@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   card: {
@@ -23,12 +24,16 @@ const useStyles = makeStyles({
 
 export default function FeaturedPost(props) {
   const classes = useStyles();
-  const { post } = props;
+  const { post,home } = props;
   var img;
   if((typeof post.image) == "string"){
     img = <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />;
   }else{
     img = <img id='img' style={{ float: 'left' }} height={'150px'} src={`data:image/png;base64,${new Buffer(post.image.data).toString('base64')}`} alt={post.title} />;
+  }
+  function goto(id,home){
+    const myurl = '/posts/'+id
+    home.props.history.push(myurl)
   }
 
   return (
@@ -37,9 +42,9 @@ export default function FeaturedPost(props) {
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
-              <Typography component="h2" variant="h5">
+              <Link component="h2" variant="h5" onClick={()=> goto(post._id,home)}>
                 {post.title}
-              </Typography>
+              </Link>
               <Typography variant="subtitle1" color="textSecondary">
                 {(new Date(post.date)).toString().substring(0, 21)}
               </Typography>

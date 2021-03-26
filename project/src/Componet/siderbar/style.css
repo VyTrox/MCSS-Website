@@ -8,7 +8,7 @@
     z-index:9999;
     position:fixed; 
     top: 30%; 
-    right:5px; 
+    left:5px; 
     width: 80px; 
     height:150px; 
     background-color:#e4e4e4; 
@@ -17,6 +17,7 @@
     border-radius: 30px;
 }
 #shop a {
+    text-decoration: none;
     color: rgb(82, 163, 74);
 }
 #shop a:hover{

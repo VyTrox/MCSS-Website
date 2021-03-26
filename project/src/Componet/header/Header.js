@@ -134,20 +134,27 @@ export default function Header(props) {
         :
         null
         }
-
         <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
+          align="right"
           noWrap
           className={classes.toolbarTitle}
         >
-          
-          {title}
+          <a href="../">
+          <img class="logo2" src={logo}></img>
+          </a>
         </Typography>
         
-        
+        <Typography
+          component="h2"
+          variant="h5"
+          color="primary"
+          align="left"
+          noWrap
+          className={classes.toolbarTitle}
+        >
+          &nbsp;
+          {title}
+        </Typography>
         {app.state.currentEmail ? 
         <div>
           {`${greet}, ${app.state.currentFirstName}`}

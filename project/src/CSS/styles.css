@@ -14,8 +14,8 @@ h1, h3 {
     font-size: medium;
 }
 
-#logo2 {
-    margin: 0;
-    height: 60px;
-    width:80px;
+.logo2 {
+    height: 76px;
+    width:  76px;
+    margin: -7px 0px -12px 0px;
 }

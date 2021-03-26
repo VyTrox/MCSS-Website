@@ -23,7 +23,6 @@ class Post extends React.Component {
                     <Grid item xs>
                         <Link id='title' variant="h5" color="inherit" onClick={()=>this.goto(post._id,home)}>
                             {post.title}
-                        </Typography>
                         <Typography variant="subtitle2" color="textSecondary">
                             {(new Date(post.date)).toString().substring(0, 21)}
                         </Typography>

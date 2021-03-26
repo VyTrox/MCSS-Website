@@ -1,6 +1,6 @@
 Participants: Zechuan Liu, Alex Quach, Yichun Liu, Youan Cong, Wentao Zhou, Yiling Li, Lang Qin
 
-Unfinished Task: All sprint 4 user stories and tasks have been completed. And there are some remaining unessential usestories which will be discarded.
+Unfinished Task: All sprint 4 user stories and tasks have been completed. And there are some remaining unessential tasks will be discarded.
 
 Good practices: Each member complete an individual React component, this clearly allocates responsibilities and each component is on an individual branch, so it avoids conflict and prevents duplicate work.
 

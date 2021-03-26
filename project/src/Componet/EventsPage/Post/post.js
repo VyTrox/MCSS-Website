@@ -19,12 +19,12 @@ class Post extends React.Component {
                         <Typography id='title' variant="h5" color="inherit" gutterBottom>
                             {post.title}
                         </Typography>
+                        <Typography variant="subtitle2" color="textSecondary">
+                            {(new Date(post.date)).toString().substring(0, 21)}
+                        </Typography>
                         <Typography id='description' variant="body1" color="inherit" paragraph>
                             {post.description}
                         </Typography>
-                        {/* <Typography variant="h5" color="inherit" paragraph>
-                            {post.date}
-                        </Typography> */}
                     </Grid>
                 </Grid>
             </Paper>

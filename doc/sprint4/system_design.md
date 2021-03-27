@@ -97,6 +97,13 @@ Responsibilities:
 Collaborators:
 - Yiling Li
 
+**Class name: calendar**  
+Parent class: React.Component  
+Responsibilities:  
+- Displays all events in a time frame
+
+Collaborators:
+- Yichun Liu
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.
 - Model

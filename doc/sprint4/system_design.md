@@ -115,6 +115,14 @@ Collaborators:
 - Alex Quach
 - Zechuan Liu
 
+**Class name: CreatePost**  
+Parent class: React.Component  
+Responsibilities:  
+- Allow admins to create new events and store it to the database for displaying.
+
+Collaborators:  
+- Wentao Zhou
+
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.
 - Model

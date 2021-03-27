@@ -104,6 +104,17 @@ Responsibilities:
 
 Collaborators:
 - Yichun Liu
+
+**Class name: EventsPage**  
+Parent class: React.Component  
+Responsibilities:  
+- Display all events posted by a MCSS executive, order from newest to oldest.
+- Users can click on an event to see more detail about it in an individual event page
+
+Collaborators:  
+- Alex Quach
+- Zechuan Liu
+
 ### MVC Architecture
 The project will mainly be completed using ReactJS, which utilizes JavaScript as its main language and is supplemented with HTML and CSS.
 - Model

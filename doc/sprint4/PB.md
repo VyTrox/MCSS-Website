@@ -7,4 +7,6 @@
  - As a member of the executive team, I want to know which topics students are more interested in MCSS.
 
  - As a student, I want to be able to see all associates to the MCSS on the associates page.
+ 
+ - As a member of the executive team, I want to be able to add events to a event calendar that displays all events in a time frame.
 
